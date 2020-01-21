@@ -1,0 +1,41 @@
+* Parameters
+** ID
+** School (geo)
+** Skill level
+** Dietary
+** # of hacks
+** Dietary Restrictions
+** Major
+** Gender
+** Race
+** Shirt
+** Current standing (graduation year)
+* Main Components
+** Diversity
+*** Race/Gender/Skill Level/# hackathons/Major
+** Useful Information
+*** Dietary Restriction
+*** School
+*** Graduation Year
+*** Shirt size
+** View Graph based on Location
+*** Graph popup on
+*** Colored Map of world
+*** General Information tooltip ~onhover~
+*** Graph Popup/Slide in (carousel?) ~onclick~
+* Selection
+** Search Based/Button based
+*** Compare with last year
+** Sort by
+* Word Cloud of expected
+* When registered
+* Schedule?
+* Wrap Data Visualization around ajax calls
+** Detect Change?
+** Or Sync crontab and vis
+** Look into Bokeh ~AjaxDataSource~ -> ~polling_interval~
+* Leaflet API (This would give me access to OpenStreetMap)
+** Search Coordinates by school name
+** Group by state (sorting)
+** Or maybe in backend when adding to database? (I would have to change schema to do this)
+* Map Overlay on click

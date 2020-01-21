@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Final Project</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <div class="img-container">
+	<a href="https://calvinhacks.com">
+	  <img alt="" src="./logo.svg"/>
+	</a>
+      </div>
+      <div class="nav-header">
+	<a href="">Main</a>
+      </div>
+      <div class="nav-link active">
+	<a href="">Dashboard</a>
+      </div>
+      <div class="nav-link">
+	<a href="">Send Email</a>
+      </div>
+      <div class="nav-link">
+	<a href="">Logout</a>
+      </div>
+    </div>
+
+    <div class="width-container">
+      <div class="main-container">
+	<h1>Dashboard</h1>
+	<div class="dashboard-container">
+
+	  <h2>Basic</h2>
+	  <div class="graph-row-container">
+	    <div class="graph-container medium-graph-container"></div>
+	    <div class="graph-container medium-graph-container"></div>
+	  </div>
+
+	  <h2>Geo</h2>
+	  <div class="graph-container large-graph-container">
+	    <div id="mapid"></div>
+	  </div>
+
+	  <h2>Useful</h2>
+	  <div class="graph-row-container">
+	    <div class="graph-container small-graph-container"></div>
+	    <div class="graph-container small-graph-container"></div>
+	    <div class="graph-container small-graph-container"></div>
+	    <div class="graph-container small-graph-container"></div>
+	  </div>
+
+	  <h2>Table</h2>
+	  <div class="graph-row-container">
+	    <div class="graph-container small-graph-container"></div>
+	    <div class="graph-container small-graph-container"></div>
+	    <div class="graph-container small-graph-container"></div>
+	    <div class="graph-container small-graph-container"></div>
+	  </div>
+	</div>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
