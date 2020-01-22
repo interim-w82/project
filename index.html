@@ -65,13 +65,17 @@
 	  <h2>Stats</h2>
 	  <div class="graph-container-list">
 	    <div class="graph-container ml-medium-graph-container">
-	      <!-- Add 2 buttons -->
-	      <button onclick="update('var1')">Variable 1</button>
-	      <button onclick="update('var2')">Variable 2</button>
+	      <div class="button-container">
+		<button class="active" onclick="update('var1')">Variable 1</button>
+		<button onclick="update('var2')">Variable 2</button>
+		<button onclick="update('var3')">Variable 3</button>
+		<button onclick="update('var4')">Variable 4</button>
+		<button onclick="update('var5')">Variable 4</button>
+	      </div>
 
-	      <!-- Create a div where the graph will take place -->
-	      <div id="my_dataviz"></div>
-
+	      <div id="general-graph">
+		General Graph
+	      </div>
 	    </div>
 
 	    <div class="graph-container small-graph-container">

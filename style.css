@@ -25,6 +25,41 @@ a:hover {
   border-bottom: 0;
 }
 
+button {
+  background-color: #999;
+  border: none;
+  text-decoration: none;
+  color: white;
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 9px;
+  text-align: center;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #aaa;
+  border: none;
+  text-decoration: none;
+  color: white;
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 9px;
+  text-align: center;
+  font-size: 14px;
+}
+
+button.active {
+  background-color: #ccc;
+  color: #white;
+}
+
+
+button.active:hover {
+  background-color: #ddd;
+  color: #white;
+}
+
 rect {
   opacity: 0.4;
 }
@@ -276,6 +311,22 @@ td {
 
   .main-container {
     margin-left: 0px;
+  }
+
+  .graph-container-list {
+    flex-direction: column;
+  }
+
+  .ml-medium-graph-container {
+    width: auto;
+  }
+
+  .medium-graph-container {
+    width: auto;
+  }
+
+  .small-graph-container {
+    width: auto;
   }
 }
 
