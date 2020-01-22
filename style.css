@@ -89,7 +89,7 @@ img a {
 
 .width-container {
   margin: 5% auto;
-  max-width: 73%;
+  max-width: 83%;
 }
 
 .main-container {
@@ -101,15 +101,15 @@ img a {
   flex-direction: column;
 }
 
-.graph-row-container {
+.graph-container-list {
   display: flex;
   flex-direction: row;
 }
 
-.graph-col-container {
-  display: flex;
-  flex-direction: column;
-}
+/* .graph-col-container { */
+/*   display: flex; */
+/*   flex-direction: column; */
+/* } */
 
 .graph-container {
   padding: 32px;
@@ -168,6 +168,10 @@ img a {
   .nav-container {
     display: none;
   }
+
+  /* .graph-container-list { */
+  /*   flex-direction: column; */
+  /* } */
 
   .width-container {
     margin: 5% auto;
