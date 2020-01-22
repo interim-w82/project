@@ -1,6 +1,28 @@
-body {position: relative; margin: 0px; background: #f2f2f2; color: #444; font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.8; display: flex; flex-direction: row;}
-code {background: white;}
-a:hover {border-bottom: 0;}
+html {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    line-height: 1.5
+}
+
+body {
+  position: relative;
+  margin: 0px;
+  background: #f2f2f2;
+  color: #444;
+  font-family: 'Roboto', sans-serif;
+
+  font-size: 16px;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: row;
+}
+
+code {
+  background: white;
+}
+
+a:hover {
+  border-bottom: 0;
+}
 
 rect {
   opacity: 0.4;
@@ -9,10 +31,14 @@ rect {
 h1,
 h2 {
   margin: 2%;
-  font-family: "URW Gothic";
+  /* TODO Replace with pretty font */
+  /* font-family: "URW Gothic"; */
+  /* font-family: "Barlow Semi Condensed script=all rev=1"; */
+  font-family: Didact Gothic, sans-serif;
+  font-weight: 900;
 }
 
-.img-container {
+.main-logo-container {
   background: #891A2F;
   width: 100%;
   display: flex;
@@ -21,17 +47,17 @@ h2 {
   margin-bottom: 20px;
 }
 
-img {
+.main-logo-container a {
+  text-decoration: none;
+  color: #fff;
+  outline : none;
+}
+
+.main-logo {
   width: 100px;
   height: 100px;
   outline : none;
   border : 0;
-}
-
-img a {
-  text-decoration: none;
-  color: #fff;
-  outline : none;
 }
 
 .nav-container {
@@ -56,7 +82,7 @@ img a {
 }
 
 .nav-header a {
-  margin-left: 30px;
+  margin: 30px;
   text-decoration: none;
   color: #fff;
 }
@@ -72,7 +98,7 @@ img a {
 }
 
 .nav-link a {
-  margin-left: 30px;
+  margin: 30px;
   text-decoration: none;
   color: #fff;
 }
@@ -85,6 +111,14 @@ img a {
   border-style: solid;
   border-color: #fff;
   border-width: 0px 0px 0px 3px;
+}
+
+.nav-text {
+  display: inline-block;
+}
+
+.nav-icon {
+  display: none;
 }
 
 .width-container {
@@ -124,6 +158,11 @@ img a {
   width: auto;
 }
 
+
+.ml-medium-graph-container {
+  width:75%
+}
+
 .medium-graph-container {
   width:50%
 }
@@ -157,21 +196,29 @@ img a {
   }
 }
 
-@media screen and (max-width:1000px) {
-  .width-container {
-    margin: 5% auto;
-    max-width: 63%;
-  }
+table {
+  border-collapse: collapse;
+  border: 2px black solid;
+  font: 12px sans-serif;
 }
+
+td {
+  border: 1px black solid;
+  padding: 5px;
+}
+
+/* @media screen and (max-width:1000px) { */
+
+  /* .width-container { */
+  /*   margin: 5% auto; */
+  /*   max-width: 63%; */
+  /* } */
+/* } */
 
 @media screen and (max-width:800px) {
   .nav-container {
     display: none;
   }
-
-  /* .graph-container-list { */
-  /*   flex-direction: column; */
-  /* } */
 
   .width-container {
     margin: 5% auto;
@@ -180,5 +227,52 @@ img a {
 
   .main-container {
     margin-left: 0px;
+  }
+}
+
+
+@media screen and (max-width:1250px) {
+  .nav-container {
+    width: 70px;
+  }
+  .main-container {
+    margin-left: 70px;
+  }
+
+  .main-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-header {
+    display: none;
+  }
+
+  .nav-link {
+    border-width: 0px 0px 0px 0px;
+  }
+
+  .nav-link.active {
+    border-width: 0px 0px 0px 0px;
+  }
+
+  .nav-link.active>a {
+    color: #EFCC0D;
+  }
+
+  .nav-link.active>a:hover {
+    color: #FCEB89;
+  }
+
+  .nav-text {
+    display: none;
+  }
+
+  .nav-icon {
+    display: inline-block;
+  }
+
+  .nav-link a {
+    margin: 0 auto;
   }
 }

@@ -5,35 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Final Project</title>
-    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script> -->
 
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <!-- <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script> -->
+
+
+    <!-- <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script> -->
+
+    <!-- <script src="https://d3js.org/d3-dsv.v1.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
     <div class="nav-container">
-      <div class="img-container">
+      <div class="main-logo-container">
 	<a href="https://calvinhacks.com">
-	  <img alt="" src="./logo.svg"/>
+	  <img class="main-logo" alt="" src="./logo.svg"/>
 	</a>
       </div>
       <div class="nav-header">
 	<a href="">Main</a>
       </div>
       <div class="nav-link active">
-	<a href="">Dashboard</a>
+	<a href="">
+	  <span class="nav-text">Dashboard</span>
+	  <i class="fas fa-tachometer-alt nav-icon"></i>
+	  <!-- <i class="fas fa-bars nav-icon"></i> -->
+	</a>
       </div>
       <div class="nav-link">
-	<a href="">Send Email</a>
+	<a href="">
+	  <span class="nav-text">Send Email</span>
+	  <i class="fas fa-envelope nav-icon"></i>
+	</a>
       </div>
       <div class="nav-link">
-	<a href="">Logout</a>
+	<a href="">
+	  <span class="nav-text">Logout</span>
+	  <i class="fas fa-sign-out-alt nav-icon"></i>
+	</a>
       </div>
     </div>
 
@@ -44,7 +64,7 @@
 
 	  <h2>Stats</h2>
 	  <div class="graph-container-list">
-	    <div class="graph-container medium-graph-container">
+	    <div class="graph-container ml-medium-graph-container">
 	      <!-- Add 2 buttons -->
 	      <button onclick="update('var1')">Variable 1</button>
 	      <button onclick="update('var2')">Variable 2</button>
@@ -54,7 +74,7 @@
 
 	    </div>
 
-	    <div class="graph-container medium-graph-container">
+	    <div class="graph-container small-graph-container">
 
 	      <div class="User Data">
 	      </div>
