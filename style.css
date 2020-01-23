@@ -28,11 +28,12 @@ a:hover {
 button {
   background-color: #999;
   border: none;
+  outline : none;
   text-decoration: none;
   color: white;
   padding: 5px 15px;
   margin: 5px;
-  border-radius: 9px;
+  /* border-radius: 9px; */
   text-align: center;
   font-size: 14px;
 }
@@ -44,7 +45,7 @@ button:hover {
   color: white;
   padding: 5px 15px;
   margin: 5px;
-  border-radius: 9px;
+  /* border-radius: 9px; */
   text-align: center;
   font-size: 14px;
 }
@@ -150,12 +151,13 @@ h2 {
 }
 
 .nav-text {
+  padding: 0px 10px;
   display: inline-block;
 }
 
-.nav-icon {
-  display: none;
-}
+/* .nav-icon { */
+/*   display: none; */
+/* } */
 
 .width-container {
   margin: 5% auto;
@@ -214,8 +216,8 @@ h2 {
 }
 
 #mapid {
-  width: 100vw;
-  height: 100%;
+  width: 100%;
+  height: 500px;
 }
 
 /* TODO: Change media queries for other */
@@ -290,9 +292,9 @@ td {
     display: none;
   }
 
-  .nav-icon {
-    display: inline-block;
-  }
+  /* .nav-icon { */
+  /*   display: inline-block; */
+  /* } */
 
   .nav-link a {
     margin: 0 auto;
@@ -304,9 +306,10 @@ td {
     display: none;
   }
 
+
   .width-container {
-    margin: 5% auto;
-    max-width: 83%;
+    margin: 2% auto;
+    width: 100%;
   }
 
   .main-container {
@@ -507,4 +510,45 @@ td {
   .table, .row, .cell {
     width: 100% !important;
   }
+}
+
+#footer {
+  margin-top: 80px;
+}
+
+#footer .footer-container {
+  display: flex;
+  flex-direction: col;
+  /* width: auto; */
+  align-items: center;
+  justify-content: center;
+  /* margin-bottom: 8; */
+}
+
+#footer .footer-container #copyright {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+#footer .footer-container .link-container {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row
+}
+
+@media screen and (max-width:1200px) {
+    #footer .footer-container .link-container {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: reverse;
+	flex-direction: column-reverse
+    }
+}
+
+#footer .footer-container .link-container #connect a {
+    margin: 1rem
 }

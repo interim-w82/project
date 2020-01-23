@@ -39,3 +39,4 @@
 ** Group by state (sorting)
 ** Or maybe in backend when adding to database? (I would have to change schema to do this)
 * Map Overlay on click
+* Map filter by grade/age/major etc
