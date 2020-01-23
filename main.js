@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var mapOptions = {
   center: [37.8, -96.9],
   zoom: 4,
@@ -19,7 +18,6 @@ mymap.addLayer(layer );
 // console.log(window.height);
   // .height($(window).height()).width($(window).width());
 // mymap.invalidateSize();
-=======
 //// // var features = { "type":"featureCollection", features: [
 //// //   {
 //// //     "type":"Feature",
@@ -295,4 +293,3 @@ mymap.addLayer(layer );
 ////       .append("td")
 ////       .text(function(d) { return d; });
 //// });
->>>>>>> 67d37388bb4e535dcb7968386665fd22abe3bd76
