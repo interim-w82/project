@@ -1,295 +1,325 @@
-var mapOptions = {
-  center: [37.8, -96.9],
-  zoom: 4,
-  zoomControl: false,
-  attributionControl: false,
-};
+//// OSM Example
+// var mapOptions = {
+//   center: [37.8, -96.9],
+//   zoom: 4,
+//   zoomControl: false,
+//   attributionControl: false,
+// };
 
-var mymap = L.map('mapid', mapOptions);
-var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-mymap.addLayer(layer );
+// var mymap = L.map('mapid', mapOptions);
+// var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+// mymap.addLayer(layer );
 
-      // var map = new L.Map('map', {center: new L.LatLng(51.51, -0.11), zoom: 9});
-      // var googleLayer = new L.Google('ROADMAP');
-      // map.addLayer(googleLayer);
-    // .setView([51.505, -0.09], 13);
-// mymapview = document.getElementById("mapid");
-// mymapview.height($(window).height())
-// console.log(window.height);
-  // .height($(window).height()).width($(window).width());
-// mymap.invalidateSize();
-//// // var features = { "type":"featureCollection", features: [
-//// //   {
-//// //     "type":"Feature",
-//// //     "properties":{data:[10,12,16,20,25,30,30,29,13,10,7,6],title:"Location of Hackers"},
-//// //     "geometry":{
-//// //       "type":"Polygon",
-//// //       "coordinates":[[[-0.1398611068725586,51.50203767899114],[-0.13994693756103516,51.50142324743368],[-0.13887405395507812,51.50051494213073],[-0.13063430786132812,51.501369818211096],[-0.1299905776977539,51.50144996202149],[-0.12973308563232422,51.50281238523426],[-0.12921810150146484,51.503400084633526],[-0.12926101684570312,51.504014489537944],[-0.12943267822265625,51.504575460694184],[-0.1295614242553711,51.50502957514356],[-0.13084888458251953,51.505724094371274],[-0.1398611068725586,51.50203767899114]]]
-//// //     }
-//// //   },
-//// //   {
-//// //     "type": "Feature",
-//// //     "properties": {data:[100,112,130,200,210,190,170,160,150,140,110,100],title:"Basic Info"},
-//// //     "geometry": {
-//// //       "type": "Polygon",
-//// //       "coordinates": [[[-0.14938831329345703,51.503132949482534],[-0.1494741439819336,51.502625388381375],[-0.14200687408447266,51.502358248689035],[-0.14127731323242188,51.502732243819835],[-0.1403331756591797,51.50281238523426],[-0.13956069946289062,51.50251853269236],[-0.13441085815429688,51.504869299972306],[-0.1347970962524414,51.50510971251776],[-0.13956069946289062,51.50329323076107],[-0.14265060424804688,51.506739141893],[-0.14664173126220703,51.50468231156],[-0.14732837677001953,51.504148054725356],[-0.14938831329345703,51.503132949482534]]]
-//// //     }
-//// //   }
-//// // ]};
-
-//// // var mymap = L.map('mapid').setView([51.5, -0.14], 14);
-
-//// // L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-//// //   maxZoom: 18,
-//// //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-//// // }).addTo(mymap);
-
-//// // L.geoJSON(features)
-//// //   .addTo(mymap)
-//// //   .bindPopup(chart);
-
-//// // function chart(d) {
-//// //   var feature = d.feature;
-//// //   var data = feature.properties.data;
-
-//// //   var width = 300;
-//// //   var height = 80;
-//// //   var margin = {left:20,right:15,top:40,bottom:40};
-//// //   var parse = d3.timeParse("%m");
-//// //   var format = d3.timeFormat("%b");
-
-//// //   var div = d3.create("div")
-//// //   var svg = div.append("svg")
-//// //       .attr("width", width+margin.left+margin.right)
-//// //       .attr("height", height+margin.top+margin.bottom);
-//// //   var g = svg.append("g")
-//// //       .attr("transform","translate("+[margin.left,margin.top]+")");
-
-//// //   var y = d3.scaleLinear()
-//// //       .domain([0, d3.max(data, function(d) { return d; }) ])
-//// //       .range([height,0]);
-
-//// //   var yAxis = d3.axisLeft()
-//// //       .ticks(4)
-//// //       .scale(y);
-//// //   g.append("g").call(yAxis);
-
-//// //   var x = d3.scaleBand()
-//// //       .domain(d3.range(12))
-//// //       .range([0,width]);
-
-//// //   var xAxis = d3.axisBottom()
-//// //       .scale(x)
-//// //       .tickFormat(function(d) { return format(parse(d+1)); });
-
-//// //   g.append("g")
-//// //     .attr("transform", "translate(0," + height + ")")
-//// //     .call(xAxis)
-//// //     .selectAll("text")
-//// //     .attr("text-anchor","end")
-//// //     .attr("transform","rotate(-90)translate(-12,-15)")
-
-//// //   var rects = g.selectAll("rect")
-//// //       .data(data)
-//// //       .enter()
-//// //       .append("rect")
-//// //       .attr("y",height)
-//// //       .attr("height",0)
-//// //       .attr("width", x.bandwidth()-2 )
-//// //       .attr("x", function(d,i) { return x(i); })
-//// //       .attr("fill","steelblue")
-//// //       .transition()
-//// //       .attr("height", function(d) { return height-y(d); })
-//// //       .attr("y", function(d) { return y(d); })
-//// //       .duration(1000);
-
-//// //   var title = svg.append("text")
-//// //       .style("font-size", "20px")
-//// //       .text(feature.properties.title)
-//// //       .attr("x", width/2 + margin.left)
-//// //       .attr("y", 30)
-//// //       .attr("text-anchor","middle");
-
-//// //   return div.node();
-
-//// // }
+//// D3 Map
+// const width = 960;
+// const height = 500;
 
 
+// let margin = {top: 10, left: 10, bottom: 10, right: 10};
 
-//// // set the dimensions and margins of the graph
-//// var margin = {top: 30, right: 30, bottom: 70, left: 60},
-////     width = 460 - margin.left - margin.right,
-////     height = 400 - margin.top - margin.bottom;
+let width = parseInt (
+  d3.selectAll('#mapsvg').style('width')
+);
 
-//// // append the svg object to the body of the page
-//// var svg = d3.select("#my_dataviz")
-////     .append("svg")
-////     .attr("width", width + margin.left + margin.right)
-////     .attr("height", height + margin.top + margin.bottom)
-////     .append("g")
-////     .attr("transform",
-////	  "translate(" + margin.left + "," + margin.top + ")");
+// width = width - margin.left - margin.right;
 
-//// // Initialize the X axis
-//// var x = d3.scaleBand()
-////     .range([ 0, width ])
-////     .padding(0.2);
-//// var xAxis = svg.append("g")
-////     .attr("transform", "translate(0," + height + ")")
+let mapRatio = .5;
 
-//// // Initialize the Y axis
-//// var y = d3.scaleLinear()
-////     .range([ height, 0]);
-//// var yAxis = svg.append("g")
-////     .attr("class", "myYaxis")
+let height = width * mapRatio;
+
+// let width = map.node().getBoundingClientRect().width;
+// let height = 500;
+
+// D3 Projection
+let projection = d3.geoAlbersUsa()
+    .scale(width)
+    .translate([width / 2, height / 2]);
+    // .translate([width/2, height/2])    // translate to center of screen
+    // .scale([1000]);          // scale things down so see entire US
+
+// Define path generator
+let path = d3.geoPath(projection);               // path generator that will convert GeoJSON to SVG paths
+    // .projection(projection);  // tell path generator to use albersUsa projection
 
 
-//// // A function that create / update the plot for a given variable:
-//// function update(selectedVar) {
+// Define linear scale for output
+let color = d3.scaleLinear()
+    .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
 
-////   // Parse the Data
-////   d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv", function(data) {
+let legendText = ["Cities Lived", "States Lived", "States Visited", "Nada"];
 
-////     // X axis
-////     x.domain(data.map(function(d) { return d.group; }))
-////     xAxis.transition().duration(1000).call(d3.axisBottom(x))
+//Create SVG element and append map to the SVG
+// const svg = d3.selectAll("#mapid")
+//       .append("svg")
+//       .attr("id", "mapsvg")
+//     // .attr("width", width)
+//     //   .attr("height", height)
+// ;
 
-////     // Add Y axis
-////     y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
-////     yAxis.transition().duration(1000).call(d3.axisLeft(y));
+const svg = d3.selectAll("#mapsvg");
 
-////     // variable u: map data to existing bars
-////     var u = svg.selectAll("rect")
-////	.data(data)
+// Set initial height
+svg.style("height", height + "px");
+// console.log(height);
 
-////     // update bars
-////     u
-////       .enter()
-////       .append("rect")
-////       .merge(u)
-////       .transition()
-////       .duration(1000)
-////       .attr("x", function(d) { return x(d.group); })
-////       .attr("y", function(d) { return y(d[selectedVar]); })
-////       .attr("width", x.bandwidth())
-////       .attr("height", function(d) { return height - y(d[selectedVar]); })
-////       .attr("fill", "#69b3a2")
-////   })
+// Append Div for tooltip to SVG
+// const div = d3.selectAll("#mapid")
+//     .append("div")
+//     .attr("class", "tooltip")
+//     .style("opacity", 0);
 
-//// }
+// d3.csv('yourcsv.csv')
+//   .then( function(data) {
+//       // data is now whole data set
+//       // draw chart in here!
+//   })
+//   .catch(function(error){
+//      // handle error if something goes wrong with loading the data
+//   })
 
-//// // Initialize plot
-//// update('var1')
+// Load in my states data!
+d3.csv("stateslived.csv")
+  .then( function(data) {
+
+    color.domain([0,1,2,3]); // setting the range of the input data
+
+    // Load GeoJSON data and merge with states data
+    d3.json("us-states.json")
+      .then( function(json) {
+
+	// Loop through each state data value in the .csv file
+	for (let i = 0; i < data.length; i++) {
+
+	  // Grab State Name
+	  const dataState = data[i].state;
+
+	  // Grab data value
+	  const dataValue = data[i].visited;
+
+	  // Find the corresponding state inside the GeoJSON
+	  for (let j = 0; j < json.features.length; j++)  {
+	    const jsonState = json.features[j].properties.name;
+
+	    if (dataState == jsonState) {
+
+	      // Copy the data value into the JSON
+	      json.features[j].properties.visited = dataValue;
+
+	      // Stop looking through the JSON
+	      break;
+	    }
+	  }
+	}
+
+	// Bind the data to the SVG and create one path per GeoJSON feature
+	svg.selectAll("path")
+	  .data(json.features)
+	  .enter()
+	  .append("path")
+	  .attr("d", path)
+	  .attr("class", "state")
+	  .style("stroke", "#fff")
+	  .style("stroke-width", "1")
+	  .style("fill", function(d) {
+
+	    // Get data value
+	    const value = d.properties.visited;
+
+	    if (value) {
+	      //If value exists…
+	      return color(value);
+	    } else {
+	      //If value is undefined…
+	      return "rgb(213,222,217)";
+	    }
+	  });
+
+	// Map the cities I have lived in!
+	// d3.csv("cities-lived.csv")
+	//   .then( function(data) {
+
+	//     svg.selectAll("circle")
+	//       .data(data)
+	//       .enter()
+	//       .append("circle")
+	//       .attr("cx", function(d) {
+	//	return projection([d.lon, d.lat])[0];
+	//       })
+	//       .attr("cy", function(d) {
+	//	return projection([d.lon, d.lat])[1];
+	//       })
+	//       .attr("r", function(d) {
+	//	return Math.sqrt(d.years) * 4;
+	//       })
+	//       .style("fill", "rgb(217,91,67)")
+	//       .style("opacity", 0.85)
+
+	//     // Modification of custom tooltip code provided by Malcolm Maclean, "D3 Tips and Tricks"
+	//     // http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
+	//       .on("mouseover", function(d) {
+	//	div.transition()
+	//	  .duration(200)
+	//	  .style("opacity", .9);
+	//	div.text(d.place)
+	//	  .style("left", (d3.event.pageX) + "px")
+	//	  .style("top", (d3.event.pageY - 28) + "px");
+	//       })
+
+	//     // fade out tooltip on mouse out
+	//       .on("mouseout", function(d) {
+	//	div.transition()
+	//	  .duration(500)
+	//	  .style("opacity", 0);
+	//       });
+	//   });
+
+	// Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
+      //	var legend = d3.selectAll("#mapid")
+      //	    .append("svg")
+      //	    .attr("class", "legend")
+      //	    .attr("width", 140)
+      //	    .attr("height", 200)
+      //	    .selectAll("g")
+      //	    .data(color.domain().slice().reverse())
+      //	    .enter()
+      //	    .append("g")
+      //	    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+      //	legend.append("rect")
+      //	  .attr("width", 18)
+      //	  .attr("height", 18)
+      //	  .style("fill", color);
+
+      //	legend.append("text")
+      //	  .data(legendText)
+      //	  .attr("x", 24)
+      //	  .attr("y", 9)
+      //	  .attr("dy", ".35em")
+      //	  .text(function(d) { return d; });
+      });
+
+  });
 
 
-//// // The svg
-//// var svge = d3.selectAll("#my_datavizu"),
-////     width = +svge.attr("width"),
-////     height = +svge.attr("height");
+function resize() {
+    // adjust things when the window size changes
+    width = parseInt(d3.select('#mapid').style('width'));
+  console.log(width);
+  // width = width
+    // - margin.left - margin.right;
+    height = width * mapRatio;
 
-//// // Map and projection
-//// var path = d3.geoPath();
-//// var projection = d3.geoMercator()
-////     .scale(70)
-////     .center([0,20])
-////     .translate([width / 2, height / 2]);
-
-//// // Data and color scale
-//// var data = d3.map();
-//// var colorScale = d3.scaleThreshold()
-////     .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-////     .range(d3.schemeBlues[7]);
-
-//// // Load external data and boot
-//// d3.queue()
-////   .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-////   .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) { data.set(d.code, +d.pop); })
-////   .await(ready);
-
-//// function ready(error, topo) {
-
-////   let mouseOver = function(d) {
-////     d3.selectAll(".Country")
-////       .transition()
-////       .duration(200)
-////       .style("opacity", .5)
-////     d3.select(this)
-////       .transition()
-////       .duration(200)
-////       .style("opacity", 1)
-////       .style("stroke", "black")
-////   }
-
-////   let mouseLeave = function(d) {
-////     d3.selectAll(".Country")
-////       .transition()
-////       .duration(200)
-////       .style("opacity", .8)
-////     d3.select(this)
-////       .transition()
-////       .duration(200)
-////       .style("stroke", "transparent")
-////   }
-
-////   // Draw the map
-////   svge.append("g")
-////     .selectAll("path")
-////     .data(topo.features)
-////     .enter()
-////     .append("path")
-////   // draw each country
-////     .attr("d", d3.geoPath()
-////	  .projection(projection)
-////	 )
-////   // set the color of each country
-////     .attr("fill", function (d) {
-////       d.total = data.get(d.id) || 0;
-////       return colorScale(d.total);
-////     })
-////     .style("stroke", "transparent")
-////     .attr("class", function(d){ return "Country" } )
-////     .style("opacity", .8)
-////     .on("mouseover", mouseOver )
-////     .on("mouseleave", mouseLeave )
-//// }
+    // update projection
+    projection
+	.translate([width / 2, height / 2])
+	.scale(width);
 
 
-///////// TAble
-//d3.csv('user.csv')
-//  .then( function(data) {
-//      // data is now whole data set
-//      // draw chart in here!
+  path = d3.geoPath(projection);               // path generator that will convert GeoJSON to SVG paths
+    // resize the map container
+    svg
+	.style('width', width + 'px')
+	.style('height', height + 'px');
 
-//  // let parsedCSV = d3.csvParseRows(data);
+    // resize the map
+    // map.selectAll('.land').attr('d', path);
+    // map.selectAll('.state').attr('d', path);
 
-//  let container = d3.select("body")
-//      .append("table")
-//      .selectAll("tr")
-//      .data(data).enter()
-//      .append("tr")
-//      .selectAll("td")
-//      .data(d => d).enter()
-//      .append("td")
-//      .text(d => d);
-//  })
-//  .catch(function(error) {
-//     // handle error if something goes wrong with loading the data
-//    console.error(error);
-//  });
+  svg.selectAll("path").attr('d', path);
+  // svg.selectAll("circle").attr('d', path);
+}
+
+d3.select(window).on('resize', resize);
 
 
-//// d3.text("user.csv", function(data) {
-////   var parsedCSV = d3.csv.parseRows(data);
+/////////// Barc Graph
 
-////   var container = d3.select("body")
-////       .append("table")
+// create 2 data_set
+var data1 = [
+   {group: "A", value: 4},
+   {group: "B", value: 16},
+   {group: "C", value: 8}
+];
 
-////       .selectAll("tr")
-////       .data(parsedCSV).enter()
-////       .append("tr")
+var data2 = [
+   {group: "A", value: 7},
+   {group: "B", value: 1},
+   {group: "C", value: 20},
+   {group: "D", value: 10}
+];
 
-////       .selectAll("td")
-////       .data(function(d) { return d; }).enter()
-////       .append("td")
-////       .text(function(d) { return d; });
-//// });
+// set the dimensions and margins of the graph
+// var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    // chartwidth = 460 - margin.left - margin.right,
+    // chartheight = 400 - margin.top - margin.bottom;
+
+let chartwidth = parseInt (
+  d3.selectAll('#chartsvg').style('width')
+);
+
+let chartheight = parseInt (
+  d3.selectAll('#chartsvg').style('height')
+);
+
+
+// append the svg object to the body of the page
+var chart = d3.select("#chartsvg")
+    .attr("width", chartwidth)
+    .attr("height", chartheight)
+    .append("g");
+    // .attr("transform",
+    //	  "translate(" + margin.left + "," + margin.top + ")");
+
+// Initialize the X axis
+var x = d3.scaleBand()
+  .range([ 0, chartwidth ])
+  .padding(0.2);
+
+var xAxis = chart.append("g")
+    .attr("transform", "translate(0," + chartheight + ")");
+
+// Initialize the Y axis
+var y = d3.scaleLinear()
+  .range([ chartheight, 0]);
+var yAxis = chart.append("g")
+    .attr("class", "myYaxis");
+
+
+// A function that create / update the plot for a given variable:
+function update(data) {
+
+  // Activate
+  // for (let i in )
+
+  // Update the X axis
+  x.domain(data.map(function(d) { return d.group; }));
+  xAxis.call(d3.axisBottom(x));
+
+  // Update the Y axis
+  y.domain([0, d3.max(data, function(d) { return d.value }) ]);
+  yAxis.transition().duration(1000).call(d3.axisLeft(y));
+
+  // Create the u variable
+  var u = chart.selectAll("rect")
+      .data(data);
+
+  u
+    .enter()
+    .append("rect") // Add a new rect for each new elements
+    .merge(u) // get the already existing elements as well
+    .transition() // and apply changes to all of them
+    .duration(1000)
+      .attr("x", function(d) { return x(d.group); })
+      .attr("y", function(d) { return y(d.value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return chartheight - y(d.value); })
+    .attr("fill", "#69b3a2");
+
+  // If less group in the new dataset, I delete the ones not in use anymore
+  u
+    .exit()
+    .remove();
+}
+
+// Initialize the plot with the first dataset
+update(data1);

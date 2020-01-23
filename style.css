@@ -141,7 +141,8 @@ h2 {
 }
 
 .nav-link a:hover{
-  color: #BD7683;
+  /* color: #BD7683; */
+  opacity: 0.7;
 }
 
 .nav-link.active {
@@ -171,6 +172,12 @@ h2 {
 .dashboard-container {
   display: flex;
   flex-direction: column;
+}
+
+#general-graph {
+  height: 100%;
+  width: auto;
+  /* height: 100%; */
 }
 
 .graph-container-list {
@@ -217,7 +224,9 @@ h2 {
 
 #mapid {
   width: 100%;
-  height: 500px;
+  height: 100%;
+  /* height: 100%; */
+  /* height: 500px; */
 }
 
 /* TODO: Change media queries for other */
@@ -285,7 +294,8 @@ td {
   }
 
   .nav-link.active>a:hover {
-    color: #FCEB89;
+    /* color: #FCEB89; */
+    opacity: 0.7;
   }
 
   .nav-text {
@@ -470,12 +480,14 @@ td {
 }
 
 .row:hover {
-  background-color: #ddd;
+  /* background-color: #ddd; */
+  opacity: 0.7;
   cursor: pointer;
 }
 
 .row.header:hover {
-  background-color: #888;
+  /* background-color: #888; */
+  opacity: 0.7;
   cursor: pointer;
 }
 
@@ -551,4 +563,58 @@ td {
 
 #footer .footer-container .link-container #connect a {
     margin: 1rem
+}
+
+
+
+/* D3 Map */
+/* On mouse hover, lighten state color */
+path:hover {
+	fill-opacity: .7;
+}
+
+/* Style for Custom Tooltip */
+div.tooltip {
+	position: absolute;
+	text-align: center;
+	width: 60px;
+	height: 28px;
+	padding: 2px;
+	font: 12px sans-serif;
+	background: white;
+	border: 0px;
+	border-radius: 8px;
+	pointer-events: none;
+}
+
+/* Legend Font Style */
+/* body { */
+/*	font: 11px sans-serif; */
+/* } */
+
+/* Legend Position Style */
+.legend {
+	/* position:absolute; */
+	left:800px;
+	top:350px;
+}
+
+#mapsvg {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+#chartsvg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* barchar */
+#my_dataviz {
+  width: auto;
+  height: 100%;
+  padding: 50px;
 }
