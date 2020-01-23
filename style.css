@@ -162,7 +162,29 @@ h2 {
 
 .width-container {
   margin: 5% auto;
-  max-width: 83%;
+  width: 93%;
+}
+
+.user-info-container {
+  /* margin: auto !important; */
+  display: flex !important;
+  flex-direction: column !important;
+  /* justify-content: space-between !important; */
+  /* align-content: center !important; */
+  /* align-items: center !important; */
+}
+
+/* hr { */
+/*   margin-left: 0; */
+/*   margin-right: 0; */
+/*   width: 100%; */
+/* } */
+
+.user-info {
+  margin: auto;
+  font-size: 16px;
+  height: 100%;
+  width: auto;
 }
 
 .main-container {
@@ -230,20 +252,20 @@ h2 {
 }
 
 /* TODO: Change media queries for other */
-@media screen and (min-width:2560px) {
-  .width-container {
-    margin: 5% auto;
-    max-width: 83%;
-  }
+/* @media screen and (min-width:2560px) { */
+/*   .width-container { */
+/*     margin: 5% auto; */
+/*     max-width: 93%; */
+/*   } */
 
-  .main-container {
-    margin-left: 450px;
-  }
+/*   .main-container { */
+/*     margin-left: 450px; */
+/*   } */
 
-  .nav-container {
-    width: 450px;
-  }
-}
+/*   .nav-container { */
+/*     width: 450px; */
+/*   } */
+/* } */
 
 table {
   border-collapse: collapse;
@@ -268,8 +290,14 @@ td {
   .nav-container {
     width: 70px;
   }
+
   .main-container {
     margin-left: 70px;
+  }
+
+  .width-container {
+    margin: 5% auto;
+    width: 93%;
   }
 
   .main-logo {
@@ -316,10 +344,9 @@ td {
     display: none;
   }
 
-
   .width-container {
-    margin: 2% auto;
-    width: 100%;
+    margin: 5% auto;
+    width: 93%;
   }
 
   .main-container {
@@ -379,12 +406,6 @@ td {
   margin: 0;
 }
 
-@media screen and (max-width: 768px) {
-  .table {
-    display: block;
-  }
-}
-
 .row {
   display: table-row;
   background: #fff;
@@ -395,7 +416,16 @@ td {
   background: #999;
 }
 
+
+.cell {
+  display: table-cell;
+}
+
 @media screen and (max-width: 768px) {
+  .table {
+    display: block;
+  }
+
   .row {
     display: block;
   }
@@ -422,17 +452,12 @@ td {
     min-width: 98px;
     display: block;
   }
-}
 
-.cell {
-  display: table-cell;
-}
-
-@media screen and (max-width: 768px) {
   .cell {
     display: block;
   }
 }
+
 
 .row .cell {
   font-family: Poppins-Regular;
