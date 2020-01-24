@@ -256,11 +256,11 @@ var data2 = [
 
 d3.csv('user.csv').then((d) => {
   const shirtArr = ["XS",
-		  "S",
-		  "M",
-		  "L",
-		  "XL",
-		  "XXL"];
+		    "S",
+		    "M",
+		    "L",
+		    "XL",
+		    "XXL"];
 
   const shirtLen = shirtArr.map(shirtVal =>
     d.map(b => b.shirt_size)
@@ -286,34 +286,53 @@ d3.csv('user.csv').then((d) => {
   let lonArr = [];
   let stateArr = [];
 
-  for (i in schoolingArr) {
-    console.log(i);
-    fetch("https://nominatim.openstreetmap.org/search.php?q=" + i + "&format=json")
-      .then(function(response) {
-	return response.json();
-      })
-      .then(function(myJson) {
-	// console.log(JSON.stringify(myJson));
-	latArr.push(myJson[0].lat);
-	lonArr.push(myJson[0].lon);
-	stateArr.push(myJson[0].display_name.split(", ")[4]);
-      });
-  }
 
-  fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      console.log(JSON.stringify(myJson));
-      console.log(myJson[0].lat);
-    });
+    // var matrix = [
+    //  {name: "Lee Gai Fun", age: 42, sex: "M"},
+    //  {name: "Laia Hamidullah", age: 27, sex: "F" },
+    //  {name: "Abraham Mdulla", age: 33, sex: "M" }
+    // ];
 
-  d3.selectAll('#user-count').text("Total Registrants: " + d.length);
-  d3.selectAll('#shirt-count').text("Shirts" );
-  d3.selectAll('#shirt-info').text(`XS (${shirtLen[0]}) S (${shirtLen[1]}) M (${shirtLen[2]}) L (${shirtLen[3]}) XL (${shirtLen[4]}) XXL (${shirtLen[5]})`);
+    var tr = d3.select(".objecttable tbody")
+	.selectAll("tr")
+	.data(d)
+	.enter().append("tr")
+	.attr("class", "row");
 
-  d3.selectAll('#diet-count').text("Dietary Restrictions: " + (d => d.dietary_restrictions).length);
+    var td = tr.selectAll("td")
+     .data(function(d, i) { return Object.values(d); })
+	.enter().append("td")
+	.attr("class", "cell")
+	.text(function(d) { return d; });
+
+  // for (i in schoolingArr) {
+  //   console.log(i);
+  //   fetch("https://nominatim.openstreetmap.org/search.php?q=" + i + "&format=json")
+  //     .then(function(response) {
+  //	return response.json();
+  //     })
+  //     .then(function(myJson) {
+  //	// console.log(JSON.stringify(myJson));
+  //	latArr.push(myJson[0].lat);
+  //	lonArr.push(myJson[0].lon);
+  //	stateArr.push(myJson[0].display_name.split(", ")[4]);
+  //     });
+  // }
+
+  // fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
+  //   .then(function(response) {
+  //     return response.json();
+  //   })
+  //   .then(function(myJson) {
+  //     console.log(JSON.stringify(myJson));
+  //     console.log(myJson[0].lat);
+  //   });
+
+  // d3.selectAll('#user-count').text("Total Registrants: " + d.length);
+  // d3.selectAll('#shirt-count').text("Shirts" );
+  // d3.selectAll('#shirt-info').text(`XS (${shirtLen[0]}) S (${shirtLen[1]}) M (${shirtLen[2]}) L (${shirtLen[3]}) XL (${shirtLen[4]}) XXL (${shirtLen[5]})`);
+
+  // d3.selectAll('#diet-count').text("Dietary Restrictions: " + (d => d.dietary_restrictions).length);
   update(d, "Race", undefined);
 
 }).catch(error => {
@@ -582,43 +601,61 @@ function search() {
 }
 
 // function tabulate(data, columns) {
-//   let table = d3.select(".wrap-table100").append("div")
-//       .attr("class", "table");
+  // let table = d3.select(".wrap-table100").append("div")
+  //     .attr("class", "table");
 
-//   let thead = table.append("div").attr("class", "row header");
+  // let thead = table.append("div").attr("class", "row header");
 
-//   // append the header row
-//   thead.selectAll(".cell")
-//     .data(columns)
-//     .enter()
-//     .append("div")
-//     .attr("class", "cell")
-//     .text(d => d.column);
+  // // append the header row
+  // thead.selectAll(".cell")
+  //   .data(columns)
+  //   .enter()
+  //   .append("div")
+  //   .attr("class", "cell")
+  //   .text(d => d.column);
 
-//   // create a row for each object in the data
-//   let rows = table.selectAll(".row")
-//       .data(data)
-//       .enter()
-//       .append("div")
-//       .attr("class", "row");
+  // // create a row for each object in the data
+  // let rows = table.selectAll(".row")
+  //     .data(data)
+  //     .enter()
+  //     .append("div")
+  //     .attr("class", "row");
 
-//   // create a cell in each row for each column
-//   let cells = rows.selectAll(".cell")
-//       .data(row =>
-//	columns.map(column =>
-//	  {column: column, "value": row[column]}))
-//       // function(row) {
-//       //	return columns.map(function(column) {
-//       //	  return {column: column, value: row[column]};
-//       //	});
-//       // })
-//       .enter()
-//       .append("div")
-//       .attr("class", "cell")
-//       .html(d => d.value);
+  // // create a cell in each row for each column
+  // let cells = rows.selectAll(".cell")
+  //     .data(// row =>
+  //	// columns.map(
+  //	  // column =>
+  //	  // {column: column, "value": row[column]}))
+  //     function(row) {
+  //	return columns.map(function(column) {
+  //	  return {column: column, value: row[column]};
+  //	});
+  //     })
+  //     .enter()
+  //     .append("div")
+  //     .attr("class", "cell")
+  //     .html(d => d.value);
 
-//   return table;
+  // return table;
 // }
 
 // render the table
 // var peopleTable = tabulate(data, ["Full Name", "Graduation Date", "School", "Major"]);
+    // var matrix = [
+    //  {name: "Lee Gai Fun", age: 42, sex: "M"},
+    //  {name: "Laia Hamidullah", age: 27, sex: "F" },
+    //  {name: "Abraham Mdulla", age: 33, sex: "M" }
+    // ];
+
+    // var tr = d3.select(".objecttable tbody")
+    //	.selectAll("tr")
+    //	.data(matrix)
+    //	.enter().append("tr")
+    //	.attr("class", "row");
+
+    // var td = tr.selectAll("td")
+    //  .data(function(d, i) { return Object.values(d); })
+    //	.enter().append("td")
+    //	.attr("class", "cell")
+    //	.text(function(d) { return d; });

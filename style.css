@@ -318,16 +318,16 @@ hr {
 /*   } */
 /* } */
 
-table {
-  border-collapse: collapse;
-  border: 2px black solid;
-  font: 12px sans-serif;
-}
+/* table { */
+/*   border-collapse: collapse; */
+/*   border: 2px black solid; */
+/*   font: 12px sans-serif; */
+/* } */
 
-td {
-  border: 1px black solid;
-  padding: 5px;
-}
+/* td { */
+/*   border: 1px black solid; */
+/*   padding: 5px; */
+/* } */
 
 /* @media screen and (max-width:1000px) { */
 
@@ -485,6 +485,7 @@ td {
   width: 100%;
   display: table;
   margin: 0;
+  border-collapse:collapse 
 }
 
 .row {
