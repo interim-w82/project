@@ -146,6 +146,7 @@ h2 {
   opacity: 0.7;
 }
 
+
 .nav-link.active {
   border-style: solid;
   border-color: #fff;
@@ -176,11 +177,11 @@ h2 {
   /* align-items: center !important; */
 }
 
-/* hr { */
-/*   margin-left: 0; */
-/*   margin-right: 0; */
-/*   width: 100%; */
-/* } */
+hr {
+  margin-left: 10%;
+  margin-right: 10%;
+  color: #fff
+}
 
 .user-info {
   margin: auto;
@@ -304,6 +305,12 @@ td {
     width: 70px;
   }
 
+  hr {
+    margin-left: 20%;
+    margin-right: 20%;
+    color: #fff
+  }
+
   .main-container {
     margin-left: 70px;
     height: 100%;
@@ -367,6 +374,7 @@ td {
   .nav-container {
     display: none;
   }
+
 
   .width-container {
     margin: 0% auto;
