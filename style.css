@@ -321,6 +321,7 @@ hr {
 table {
   border-collapse: collapse;
   border: 2px black solid;
+
 }
 
 td {
@@ -484,6 +485,7 @@ td {
   width: 100%;
   display: table;
   margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .row {
