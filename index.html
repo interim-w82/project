@@ -85,6 +85,7 @@
 	  <h2>Stats</h2>
 	  <div class="graph-container-list">
 	    <div class="graph-container ml-medium-graph-container">
+	      <i class="fas fa-user"></i> Hacker Demographics
 	      <div class="button-container">
 		<div class="data-button active-button" onclick="update(globalD, 'Race', event)">Race</div>
 		<div class="data-button" onclick="update(globalD, 'Gender', event)">Gender</div>
@@ -100,13 +101,21 @@
 	    </div>
 
 	    <div class="user-info-container small-graph-container ">
-	      <div id="user-count" class="user-info graph-container">
+	      <div class="user-info graph-container">
+		<p id="user-count" class="user-card"> </p>
+		<i class="fas fa-ellipsis-v"></i>
 	      </div>
 	      <!-- <hr/> -->
-	      <div id="shirt-count" class="user-info graph-container">
+	      <div class="user-info graph-container">
+		<p id="shirt-count" class="user-card"></p>
+		<p id="shirt-info">XS (0) S (0) M (0) L (0) XL (0) XXL(0)</p>
+		<i class="fas fa-ellipsis-v"></i>
 	      </div>
 	      <!-- <hr/> -->
-	      <div id="diet-count" class="user-info graph-container">
+	      <div class="user-info graph-container">
+		<p id="diet-count" class="user-card"> </p>
+		<p id="diet-info"></p>
+		<i class="fas fa-ellipsis-v"></i>
 	      </div>
 
 	    <!--   <div class="User Data"> -->
@@ -129,6 +138,7 @@
 	  </div>
 
 	  <div class="graph-container large-graph-container">
+	     <i class="fas fa-map-marker-alt"></i>  Where are our Hackers?
 	    <div id="mapid">
 	      <svg id="mapsvg"></svg>
 	    </div>

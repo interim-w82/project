@@ -101,7 +101,7 @@ let path = d3.geoPath(projection);               // path generator that will con
 
 // Define linear scale for output
 let color = d3.scaleLinear()
-    .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
+    .range(["#BDBDBD","#999999","#7F7F7F","#666666"]);
 
 let legendText = ["Cities Lived", "States Lived", "States Visited", "Nada"];
 
@@ -134,15 +134,6 @@ const div = d3.selectAll("#mapid")
 //      // handle error if something goes wrong with loading the data
 //   })
 
-// fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(myJson) {
-//     console.log(JSON.stringify(myJson));
-//     console.log(myJson[0].lat);
-
-//   });
 
 // Load in my states data!
 d3.csv("stateslived.csv")
@@ -206,7 +197,7 @@ d3.csv("stateslived.csv")
 	  .then( function(data) {
 	    dataCiti = data;
 
-	    console.log(projection(["-74.007124", "40.71455"]));
+	    // console.log(projection(["-74.007124", "40.71455"]));
 
 	    svg.selectAll("circle")
 	      .data(dataCiti)
@@ -222,8 +213,8 @@ d3.csv("stateslived.csv")
 		return Math.sqrt(d.years) * 4;
 	      })
 	      .attr('class', 'my-circles')
-	      .style("fill", "rgb(217,91,67)")
-	      .style("opacity", 0.85)
+	      .style("fill", "#891A2F")
+	      .style("opacity", 0.65)
 
 	      .on("mouseover", function(d) {
 		div.transition()
@@ -264,10 +255,65 @@ var data2 = [
 ];
 
 d3.csv('user.csv').then((d) => {
+  const shirtArr = ["XS",
+		  "S",
+		  "M",
+		  "L",
+		  "XL",
+		  "XXL"];
+
+  const shirtLen = shirtArr.map(shirtVal =>
+    d.map(b => b.shirt_size)
+      .filter(g => g.includes(shirtVal))
+      .length);
+
   globalD = d;
+
+  let schoolArr = d.map(s => s.school_name);
+
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
+  var unique = schoolArr.filter( onlyUnique ); // returns ['a', 1, 2, '1']
+
+  let schoolingArr = unique.map((i => i.replace(" ", "+")));
+
+
+  console.log(schoolingArr);
+
+  let latArr = [];
+  let lonArr = [];
+  let stateArr = [];
+
+  for (i in schoolingArr) {
+    console.log(i);
+    fetch("https://nominatim.openstreetmap.org/search.php?q=" + i + "&format=json")
+      .then(function(response) {
+	return response.json();
+      })
+      .then(function(myJson) {
+	// console.log(JSON.stringify(myJson));
+	latArr.push(myJson[0].lat);
+	lonArr.push(myJson[0].lon);
+	stateArr.push(myJson[0].display_name.split(", ")[4]);
+      });
+  }
+
+  fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(myJson) {
+      console.log(JSON.stringify(myJson));
+      console.log(myJson[0].lat);
+    });
+
   d3.selectAll('#user-count').text("Total Registrants: " + d.length);
-  d3.selectAll('#shirt-count').text("T-shirts: " + d.length);
-  d3.selectAll('#diet-count').text("Dietary Restrictions: " + d.length);
+  d3.selectAll('#shirt-count').text("Shirts" );
+  d3.selectAll('#shirt-info').text(`XS (${shirtLen[0]}) S (${shirtLen[1]}) M (${shirtLen[2]}) L (${shirtLen[3]}) XL (${shirtLen[4]}) XXL (${shirtLen[5]})`);
+
+  d3.selectAll('#diet-count').text("Dietary Restrictions: " + (d => d.dietary_restrictions).length);
   update(d, "Race", undefined);
 
 }).catch(error => {
@@ -275,15 +321,13 @@ d3.csv('user.csv').then((d) => {
 });
 
 // set the dimensions and margins of the graph
-// var margin = {top: 30, right: 30, bottom: 70, left: 60},
-    // chartwidth = 460 - margin.left - margin.right,
-    // chartheight = 400 - margin.top - margin.bottom;
+let margin = {top: 20, right: 20, bottom: 30, left: 20};
 
 let chartwidth = parseInt (
   d3.selectAll('#chartsvg').style('width')
-);
+) - margin.left - margin.right;
 
-let chartheight = 250;
+let chartheight = 250 - margin.top - margin.bottom;
     // parseInt (
 //   d3.selectAll('#chartsvg').style('height')
 // );
@@ -295,9 +339,9 @@ let chartheight = 250;
 var chart = d3.select("#chartsvg")
     .attr("width", chartwidth)
     .attr("height", chartheight)
-    .append("g");
-    // .attr("transform",
-    //	  "translate(" + margin.left + "," + margin.top + ")");
+    .append("g")
+    .attr("transform",
+	  "translate(" + margin.left + "," + margin.top + ")");
 
 // Initialize the X axis
 var x = d3.scaleBand()
@@ -318,11 +362,11 @@ function dataFilter(data, category, trueData) {
   currentCategory = category;
   switch (category) {
   case "Race":
-    const raceArr = ["WHITE",
-		     "ASIAN",
+    const raceArr = ["ASIAN",
+		     "WHITE",
 		     "BLACK",
 		     "HISPANIC",
-		     "DISCLOSURE"];
+		     "OTHER"];
 
     const raceLen = raceArr.map(raceVal =>
       data.map(d => d.race)
@@ -335,8 +379,8 @@ function dataFilter(data, category, trueData) {
     break;
 
   case "Gender":
-    const genArr = ["male",
-		    "female",
+    const genArr = ["Male",
+		    "Female",
 		    "I prefer not to say"];
 
     const genLen = genArr.map(genVal =>
@@ -362,7 +406,7 @@ function dataFilter(data, category, trueData) {
     break;
 
   case "Major":
-    const majorArr = ["Computer", "General Studies", "Physics", "Other"];
+    const majorArr = ["Computer", "Engineering", "Physics", "Other"];
     const majorLen = majorArr.map(majorVal =>
       data.map(d => d.major)
 	.filter(s => s.includes(majorVal))
@@ -413,7 +457,7 @@ function update(data, category, evt) {
     .attr("y", d => y(d.value))
     .attr("width", x.bandwidth())
     .attr("height", d => chartheight - y(d.value))
-    .attr("fill", "#D98494");
+    .attr("fill", "#999999");
 
   // If less group in the new dataset, I delete the ones not in use anymore
   u
@@ -468,8 +512,6 @@ function resize() {
     .enter()
     .append("circle")
     .merge(yo) // get the already existing elements as well
-    .transition() // and apply changes to all of them
-    .duration(1000)
     .attr("cx", function(d) {
       return projection([d.lon, d.lat])[0];
     })
@@ -479,8 +521,8 @@ function resize() {
     .attr("r", function(d) {
       return Math.sqrt(d.years) * 4;
     })
-    .style("fill", "rgb(217,91,67)")
-    .style("opacity", 0.85)
+    .style("fill", "#891A2F")
+    .style("opacity", 0.65)
     .on("mouseover", function(d) {
       div.transition()
 	.duration(200)
@@ -494,10 +536,6 @@ function resize() {
 	.duration(500)
 	.style("opacity", 0);
     });
-
-  // yo
-  //   .exit()
-  //   .remove();
 
   ichart = d3.select("#chartsvg")
     .attr("width", chartwidth)
@@ -534,7 +572,7 @@ function search() {
   for (i = 0; i < tr.length; i++) {
     txtValue = tr[i].textContent || tr[i].innerText;
 
-    console.log(txtValue);
+    // console.log(txtValue);
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       tr[i].style.display = "";
     } else {
@@ -543,42 +581,44 @@ function search() {
   }
 }
 
-function tabulate(data, columns) {
-  let table = d3.select(".wrap-table100").append("div")
-      .attr("class", "table");
+// function tabulate(data, columns) {
+//   let table = d3.select(".wrap-table100").append("div")
+//       .attr("class", "table");
 
-  let thead = table.append("div").attr("class", "row header");
+//   let thead = table.append("div").attr("class", "row header");
 
-  // append the header row
-  thead.selectAll(".cell")
-    .data(columns)
-    .enter()
-    .append("div")
-    .attr("class", "cell")
-    .text(d => d.column);
+//   // append the header row
+//   thead.selectAll(".cell")
+//     .data(columns)
+//     .enter()
+//     .append("div")
+//     .attr("class", "cell")
+//     .text(d => d.column);
 
-  // create a row for each object in the data
-  let rows = table.selectAll(".row")
-      .data(data)
-      .enter()
-      .append("div")
-      .attr("class", "row");
+//   // create a row for each object in the data
+//   let rows = table.selectAll(".row")
+//       .data(data)
+//       .enter()
+//       .append("div")
+//       .attr("class", "row");
 
-  // create a cell in each row for each column
-  let cells = rows.selectAll(".cell")
-      .data(
-      function(row) {
-	return columns.map(function(column) {
-	  return {column: column, value: row[column]};
-	});
-      })
-      .enter()
-      .append("div")
-      .attr("class", "cell")
-      .html(d => d.value);
+//   // create a cell in each row for each column
+//   let cells = rows.selectAll(".cell")
+//       .data(row =>
+//	columns.map(column =>
+//	  {column: column, "value": row[column]}))
+//       // function(row) {
+//       //	return columns.map(function(column) {
+//       //	  return {column: column, value: row[column]};
+//       //	});
+//       // })
+//       .enter()
+//       .append("div")
+//       .attr("class", "cell")
+//       .html(d => d.value);
 
-  return table;
-}
+//   return table;
+// }
 
 // render the table
-var peopleTable = tabulate(data, ["Full Name", "Graduation Date", "School", "Major"]);
+// var peopleTable = tabulate(data, ["Full Name", "Graduation Date", "School", "Major"]);

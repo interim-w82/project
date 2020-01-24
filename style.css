@@ -61,6 +61,11 @@ a:hover {
   outline: none !important;
 }
 
+.button-container {
+  display: inline-block;
+  float: right;
+}
+
 .data-button.active-button {
   background-color: #ccc;
   color: #white;
@@ -189,8 +194,8 @@ h2 {
   /* margin: auto !important; */
   display: flex !important;
   flex-direction: column !important;
-  /* justify-content: space-between !important; */
-  /* align-content: center !important; */
+  justify-content: space-between !important;
+  align-content: center !important;
   /* align-items: center !important; */
 }
 
@@ -201,10 +206,25 @@ hr {
 }
 
 .user-info {
-  margin: auto;
-  font-size: 16px;
+  position: relative;
+  /* margin: auto; */
+  /* font-size: 16px; */
   height: 100%;
   width: auto;
+}
+
+.user-info i {
+  position: absolute;
+  right: 5%;
+  top: 15%;
+
+}
+
+.user-card {
+  font-size: 22px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+
 }
 
 .main-container {
@@ -667,8 +687,8 @@ path:hover {
 div.tooltip {
 	position: absolute;
 	text-align: center;
-	width: 60px;
-	height: 28px;
+	width: 100px;
+	height: 58px;
 	padding: 2px;
 	font: 12px sans-serif;
 	background: white;
