@@ -2,11 +2,11 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   line-height: 1.5;
   overflow-x: hidden;
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
-  position: relative;
+  /* position: relative; */
   margin: 0px;
   background: #f2f2f2;
   color: #444;
@@ -162,7 +162,7 @@ h2 {
 /* } */
 
 .width-container {
-  margin: 5% auto;
+  margin: 0% auto;
   width: 93%;
   height: 100%;
 }
@@ -307,21 +307,19 @@ td {
   .main-container {
     margin-left: 70px;
     height: 100%;
-
     position: relative;
   }
 
   #footer {
-    position: absolute;
     left: 0;
     right: 0;
     bottom: 0px;
     margin: 2% auto;
-    margin-left: 70px !important;
+    margin-top: t;
   }
 
   .width-container {
-    margin: 5% auto;
+    margin: 0% auto;
     width: 93%;
     height: 100%;
   }
@@ -371,7 +369,7 @@ td {
   }
 
   .width-container {
-    margin: 5% auto;
+    margin: 0% auto;
     width: 93%;
     height: 100%;
   }
@@ -379,12 +377,11 @@ td {
   .main-container {
     margin-left: 0px;
     height: 100%;
-
     position: relative;
   }
 
   #footer {
-    position: absolute;
+    /* position: absolute; */
     left: 0;
     right: 0;
     bottom: 0px;
@@ -589,12 +586,11 @@ td {
 }
 
 #footer {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
   right: 0;
   bottom: 0px;
   margin: 2% auto;
-  margin-left: 250px;
 }
 
 #footer .footer-container {
