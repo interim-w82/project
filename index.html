@@ -86,10 +86,10 @@
 	  <div class="graph-container-list">
 	    <div class="graph-container ml-medium-graph-container">
 	      <div class="button-container">
-		<button class="active data-button" onclick="update(data1)">Race</button>
-		<button class="data-button" onclick="update(data2)">Gender</button>
-		<button class="data-button" onclick="update(data1)">Skill Level</button>
-		<button class="data-button" onclick="update(data2)">Major</button>
+		<div class="data-button active-button" onclick="update(globalD, 'Race', event)">Race</div>
+		<div class="data-button" onclick="update(globalD, 'Gender', event)">Gender</div>
+		<div class="data-button" onclick="update(globalD, 'Skill', event)">Skill Level</div>
+		<div class="data-button" onclick="update(globalD, 'Major', event)">Major</div>
 	      </div>
 
 	      <div id="general-graph">
@@ -100,16 +100,13 @@
 	    </div>
 
 	    <div class="user-info-container small-graph-container ">
-	      <div class="user-info graph-container">
-		Total Users: 120
+	      <div id="user-count" class="user-info graph-container">
 	      </div>
 	      <!-- <hr/> -->
-	      <div class="user-info graph-container">
-		T-Shirts:
+	      <div id="shirt-count" class="user-info graph-container">
 	      </div>
 	      <!-- <hr/> -->
-	      <div class="user-info graph-container">
-		Confirmed:
+	      <div id="diet-count" class="user-info graph-container">
 	      </div>
 
 	    <!--   <div class="User Data"> -->
@@ -140,7 +137,10 @@
 	  <h2>Users</h2>
 
 	  <div class="limiter">
+
 	    <div class="container-table100">
+
+	    <input type="text" id="myInput" onkeyup="search()" placeholder="Search..." title="Search">
 	      <div class="wrap-table100">
 		<div class="table">
 

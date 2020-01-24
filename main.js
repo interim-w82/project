@@ -1,3 +1,60 @@
+// const major = [""
+let globalD;
+let dataCiti;
+let currentCategory;
+let states = [
+  "Alabama",
+  "Alaska",
+  "Arkansas",
+  "Arizona",
+  "California",
+  "Colorado",
+  "Connecticut",
+  "Delaware",
+  "Florida",
+  "Georgia",
+  "Hawaii",
+  "Iowa",
+  "Idaho",
+  "Illinois",
+  "Indiana",
+  "Kansas",
+  "Kentucky",
+  "Louisiana",
+  "Maine",
+  "Maryland",
+  "Massachusetts",
+  "Michigan",
+  "Minnesota",
+  "Missouri",
+  "Mississippi",
+  "Montana",
+  "North Carolina",
+  "North Dakota",
+  "Nebraska",
+  "New Hampshire",
+  "New Jersey",
+  "New Mexico",
+  "Nevada",
+  "New York",
+  "Ohio",
+  "Oklahoma",
+  "Oregon",
+  "Pennsylvania",
+  "Rhode Island",
+  "South Carolina",
+  "South Dakota",
+  "Tennessee",
+  "Texas",
+  "Utah",
+  "Virginia",
+  "Vermont",
+  "Washington",
+  "Wisconsin",
+  "West Virginia",
+  "Wyoming"];
+
+// ];
 //// OSM Example
 // var mapOptions = {
 //   center: [37.8, -96.9],
@@ -63,10 +120,10 @@ svg.style("height", height + "px");
 // console.log(height);
 
 // Append Div for tooltip to SVG
-// const div = d3.selectAll("#mapid")
-//     .append("div")
-//     .attr("class", "tooltip")
-//     .style("opacity", 0);
+const div = d3.selectAll("#mapid")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
 // d3.csv('yourcsv.csv')
 //   .then( function(data) {
@@ -76,6 +133,16 @@ svg.style("height", height + "px");
 //   .catch(function(error){
 //      // handle error if something goes wrong with loading the data
 //   })
+
+// fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
+//   .then(function(response) {
+//     return response.json();
+//   })
+//   .then(function(myJson) {
+//     console.log(JSON.stringify(myJson));
+//     console.log(myJson[0].lat);
+
+//   });
 
 // Load in my states data!
 d3.csv("stateslived.csv")
@@ -130,106 +197,54 @@ d3.csv("stateslived.csv")
 	      return color(value);
 	    } else {
 	      //If value is undefined…
-	      return "rgb(213,222,217)";
+	      return "#c9c9c9";
 	    }
 	  });
 
 	// Map the cities I have lived in!
-	// d3.csv("cities-lived.csv")
-	//   .then( function(data) {
+	d3.csv("cities-lived.csv")
+	  .then( function(data) {
+	    dataCiti = data;
 
-	//     svg.selectAll("circle")
-	//       .data(data)
-	//       .enter()
-	//       .append("circle")
-	//       .attr("cx", function(d) {
-	//	return projection([d.lon, d.lat])[0];
-	//       })
-	//       .attr("cy", function(d) {
-	//	return projection([d.lon, d.lat])[1];
-	//       })
-	//       .attr("r", function(d) {
-	//	return Math.sqrt(d.years) * 4;
-	//       })
-	//       .style("fill", "rgb(217,91,67)")
-	//       .style("opacity", 0.85)
+	    console.log(projection(["-74.007124", "40.71455"]));
 
-	//     // Modification of custom tooltip code provided by Malcolm Maclean, "D3 Tips and Tricks"
-	//     // http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
-	//       .on("mouseover", function(d) {
-	//	div.transition()
-	//	  .duration(200)
-	//	  .style("opacity", .9);
-	//	div.text(d.place)
-	//	  .style("left", (d3.event.pageX) + "px")
-	//	  .style("top", (d3.event.pageY - 28) + "px");
-	//       })
+	    svg.selectAll("circle")
+	      .data(dataCiti)
+	      .enter()
+	      .append("circle")
+	      .attr("cx", function(d) {
+		return projection([d.lon, d.lat])[0];
+	      })
+	      .attr("cy", function(d) {
+		return projection([d.lon, d.lat])[1];
+	      })
+	      .attr("r", function(d) {
+		return Math.sqrt(d.years) * 4;
+	      })
+	      .attr('class', 'my-circles')
+	      .style("fill", "rgb(217,91,67)")
+	      .style("opacity", 0.85)
 
-	//     // fade out tooltip on mouse out
-	//       .on("mouseout", function(d) {
-	//	div.transition()
-	//	  .duration(500)
-	//	  .style("opacity", 0);
-	//       });
-	//   });
+	      .on("mouseover", function(d) {
+		div.transition()
+		  .duration(200)
+		  .style("opacity", .9);
+		div.text(d.place)
+		  .style("left", (d3.event.pageX - width / 5) + "px")
+		  .style("top", (d3.event.pageY - 28) + "px");
+	      })
 
-	// Modified Legend Code from Mike Bostock: http://bl.ocks.org/mbostock/3888852
-      //	var legend = d3.selectAll("#mapid")
-      //	    .append("svg")
-      //	    .attr("class", "legend")
-      //	    .attr("width", 140)
-      //	    .attr("height", 200)
-      //	    .selectAll("g")
-      //	    .data(color.domain().slice().reverse())
-      //	    .enter()
-      //	    .append("g")
-      //	    .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+	      .on("mouseout", function(d) {
+		div.transition()
+		  .duration(500)
+		  .style("opacity", 0);
+	      });
+	  });
 
-      //	legend.append("rect")
-      //	  .attr("width", 18)
-      //	  .attr("height", 18)
-      //	  .style("fill", color);
-
-      //	legend.append("text")
-      //	  .data(legendText)
-      //	  .attr("x", 24)
-      //	  .attr("y", 9)
-      //	  .attr("dy", ".35em")
-      //	  .text(function(d) { return d; });
       });
 
   });
 
-
-function resize() {
-    // adjust things when the window size changes
-    width = parseInt(d3.select('#mapid').style('width'));
-  console.log(width);
-  // width = width
-    // - margin.left - margin.right;
-    height = width * mapRatio;
-
-    // update projection
-    projection
-	.translate([width / 2, height / 2])
-	.scale(width);
-
-
-  path = d3.geoPath(projection);               // path generator that will convert GeoJSON to SVG paths
-    // resize the map container
-    svg
-	.style('width', width + 'px')
-	.style('height', height + 'px');
-
-    // resize the map
-    // map.selectAll('.land').attr('d', path);
-    // map.selectAll('.state').attr('d', path);
-
-  svg.selectAll("path").attr('d', path);
-  // svg.selectAll("circle").attr('d', path);
-}
-
-d3.select(window).on('resize', resize);
 
 
 /////////// Barc Graph
@@ -248,6 +263,17 @@ var data2 = [
    {group: "D", value: 10}
 ];
 
+d3.csv('user.csv').then((d) => {
+  globalD = d;
+  d3.selectAll('#user-count').text("Total Registrants: " + d.length);
+  d3.selectAll('#shirt-count').text("T-shirts: " + d.length);
+  d3.selectAll('#diet-count').text("Dietary Restrictions: " + d.length);
+  update(d, "Race", undefined);
+
+}).catch(error => {
+  console.error(error);
+});
+
 // set the dimensions and margins of the graph
 // var margin = {top: 30, right: 30, bottom: 70, left: 60},
     // chartwidth = 460 - margin.left - margin.right,
@@ -257,9 +283,12 @@ let chartwidth = parseInt (
   d3.selectAll('#chartsvg').style('width')
 );
 
-let chartheight = parseInt (
-  d3.selectAll('#chartsvg').style('height')
-);
+let chartheight = 250;
+    // parseInt (
+//   d3.selectAll('#chartsvg').style('height')
+// );
+
+// let defaultRatio = chartwidth / chartheight;
 
 
 // append the svg object to the body of the page
@@ -285,23 +314,94 @@ var yAxis = chart.append("g")
     .attr("class", "myYaxis");
 
 
-// A function that create / update the plot for a given variable:
-function update(data) {
+function dataFilter(data, category, trueData) {
+  currentCategory = category;
+  switch (category) {
+  case "Race":
+    const raceArr = ["WHITE",
+		     "ASIAN",
+		     "BLACK",
+		     "HISPANIC",
+		     "DISCLOSURE"];
 
-  // Activate
-  // for (let i in )
+    const raceLen = raceArr.map(raceVal =>
+      data.map(d => d.race)
+	.filter(r => r.includes(raceVal))
+	.length);
+
+    for (let i = 0; i < raceArr.length; ++i) {
+      trueData.push({"group": raceArr[i], "value": raceLen[i]});
+    }
+    break;
+
+  case "Gender":
+    const genArr = ["male",
+		    "female",
+		    "I prefer not to say"];
+
+    const genLen = genArr.map(genVal =>
+      data.map(d => d.gender)
+	.filter(g => g.includes(genVal))
+	.length);
+
+    for (let i = 0; i < genArr.length; ++i) {
+      trueData.push({"group": genArr[i], "value": genLen[i]});
+    }
+    break;
+
+  case "Skill":
+    const skillArr = ["0", "1", "2", "3", "4"];
+    const skillLen = skillArr.map(skillVal =>
+      data.map(d => d.skill_level)
+	.filter(s => s.includes(skillVal))
+	.length);
+
+    for (let i = 0; i < skillArr.length; ++i) {
+      trueData.push({"group": skillArr[i], "value": skillLen[i]});
+    }
+    break;
+
+  case "Major":
+    const majorArr = ["Computer", "General Studies", "Physics", "Other"];
+    const majorLen = majorArr.map(majorVal =>
+      data.map(d => d.major)
+	.filter(s => s.includes(majorVal))
+	.length);
+
+    for (let i = 0; i < majorArr.length; ++i) {
+      trueData.push({"group": majorArr[i], "value": majorLen[i]});
+    }
+    break;
+  }
+}
+
+// A function that create / update the plot for a given variable:
+function update(data, category, evt) {
+
+  if (evt) {
+    let tablinks = document.getElementsByClassName("data-button");
+    for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active-button", "");
+    }
+
+    evt.currentTarget.className += " active-button";
+  }
+
+  let trueData = [];
+
+  dataFilter(data, category, trueData);
 
   // Update the X axis
-  x.domain(data.map(function(d) { return d.group; }));
+  x.domain(trueData.map(d => d.group));
   xAxis.call(d3.axisBottom(x));
 
   // Update the Y axis
-  y.domain([0, d3.max(data, function(d) { return d.value }) ]);
+  y.domain([0, d3.max(trueData, d => d.value)]);
   yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
   // Create the u variable
   var u = chart.selectAll("rect")
-      .data(data);
+      .data(trueData);
 
   u
     .enter()
@@ -309,11 +409,11 @@ function update(data) {
     .merge(u) // get the already existing elements as well
     .transition() // and apply changes to all of them
     .duration(1000)
-      .attr("x", function(d) { return x(d.group); })
-      .attr("y", function(d) { return y(d.value); })
-      .attr("width", x.bandwidth())
-      .attr("height", function(d) { return chartheight - y(d.value); })
-    .attr("fill", "#69b3a2");
+    .attr("x", d => x(d.group))
+    .attr("y", d => y(d.value))
+    .attr("width", x.bandwidth())
+    .attr("height", d => chartheight - y(d.value))
+    .attr("fill", "#D98494");
 
   // If less group in the new dataset, I delete the ones not in use anymore
   u
@@ -321,5 +421,164 @@ function update(data) {
     .remove();
 }
 
-// Initialize the plot with the first dataset
-update(data1);
+function resize() {
+  // adjust things when the window size changes
+  width = parseInt(d3.select('#mapid').style('width'));
+  height = width * mapRatio;
+
+  chartwidth = parseInt(d3.selectAll('#my_dataviz').style('width'));
+  // chartheight = parseInt(d3.selectAll('#my_dataviz').style('height'));
+  // let chartratio = chartwidth / chartheight;
+
+  // if (chartratio > defaultRatio) {
+  //   chartwidth = chartheight * defaultRatio;
+  // } else {
+  //   chartheight = chartwidth / defaultRatio;
+  // }
+
+  // console.log(width);
+  // width = width
+  // - margin.left - margin.right;
+
+  // update projection
+  projection
+    .translate([width / 2, height / 2])
+    .scale(width);
+
+
+  path = d3.geoPath(projection);               // path generator that will convert GeoJSON to SVG paths
+  // resize the map container
+  svg
+    .style('width', width + 'px')
+    .style('height', height + 'px');
+
+  // resize the map
+  // map.selectAll('.land').attr('d', path);
+  // map.selectAll('.state').attr('d', path);
+
+  svg.selectAll("path").attr('d', path);
+  // svg.selectAll("circle").attr('d', path);
+
+  // circles
+
+  var yo = svg.selectAll(".my-circles")
+      .data(dataCiti);
+
+  yo
+    .enter()
+    .append("circle")
+    .merge(yo) // get the already existing elements as well
+    .transition() // and apply changes to all of them
+    .duration(1000)
+    .attr("cx", function(d) {
+      return projection([d.lon, d.lat])[0];
+    })
+    .attr("cy", function(d) {
+      return projection([d.lon, d.lat])[1];
+    })
+    .attr("r", function(d) {
+      return Math.sqrt(d.years) * 4;
+    })
+    .style("fill", "rgb(217,91,67)")
+    .style("opacity", 0.85)
+    .on("mouseover", function(d) {
+      div.transition()
+	.duration(200)
+	.style("opacity", .9);
+      div.text(d.place)
+	.style("left", (d3.event.pageX - width / 5) + "px")
+	.style("top", (d3.event.pageY - 28) + "px");
+    })
+    .on("mouseout", function(d) {
+      div.transition()
+	.duration(500)
+	.style("opacity", 0);
+    });
+
+  // yo
+  //   .exit()
+  //   .remove();
+
+  ichart = d3.select("#chartsvg")
+    .attr("width", chartwidth)
+    .attr("height", chartheight)
+    .append("g");
+
+  // Initialize the X axis
+  x = d3.scaleBand()
+      .range([ 0, chartwidth ])
+      .padding(0.2);
+
+  ixAxis = chart.append("g")
+    .attr("transform", "translate(0," + chartheight + ")");
+
+  y = d3.scaleLinear()
+    .range([ chartheight, 0]);
+  yAxis = chart.append("g")
+    .attr("class", "myYaxis");
+
+
+  update(globalD, currentCategory, undefined);
+
+
+}
+
+d3.select(window).on('resize', resize);
+
+function search() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementsByClassName("table");
+  tr = document.querySelectorAll('.row:not(.header)');
+  for (i = 0; i < tr.length; i++) {
+    txtValue = tr[i].textContent || tr[i].innerText;
+
+    console.log(txtValue);
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      tr[i].style.display = "";
+    } else {
+      tr[i].style.display = "none";
+    }
+  }
+}
+
+function tabulate(data, columns) {
+  let table = d3.select(".wrap-table100").append("div")
+      .attr("class", "table");
+
+  let thead = table.append("div").attr("class", "row header");
+
+  // append the header row
+  thead.selectAll(".cell")
+    .data(columns)
+    .enter()
+    .append("div")
+    .attr("class", "cell")
+    .text(d => d.column);
+
+  // create a row for each object in the data
+  let rows = table.selectAll(".row")
+      .data(data)
+      .enter()
+      .append("div")
+      .attr("class", "row");
+
+  // create a cell in each row for each column
+  let cells = rows.selectAll(".cell")
+      .data(
+      function(row) {
+	return columns.map(function(column) {
+	  return {column: column, value: row[column]};
+	});
+      })
+      .enter()
+      .append("div")
+      .attr("class", "cell")
+      .html(d => d.value);
+
+  return table;
+}
+
+// render the table
+var peopleTable = tabulate(data, ["Full Name", "Graduation Date", "School", "Major"]);

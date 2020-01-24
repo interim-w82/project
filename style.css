@@ -26,20 +26,22 @@ a:hover {
   border-bottom: 0;
 }
 
-button {
+.data-button {
   background-color: #999;
-  border: none;
-  outline : none;
   text-decoration: none;
   color: white;
   padding: 5px 15px;
   margin: 5px;
+  display: inline-block;
   /* border-radius: 9px; */
   text-align: center;
+  cursor: pointer;
   font-size: 14px;
+  border: none;
+  outline: none !important;
 }
 
-button:hover {
+.data-button:hover {
   background-color: #aaa;
   border: none;
   text-decoration: none;
@@ -49,17 +51,32 @@ button:hover {
   /* border-radius: 9px; */
   text-align: center;
   font-size: 14px;
+  border: none;
+  outline: none !important;
 }
 
-button.active {
+.data-button:active {
+  text-decoration: none;
+  border: none;
+  outline: none !important;
+}
+
+.data-button.active-button {
   background-color: #ccc;
   color: #white;
+  outline: none;
+  border: none !important;
 }
 
 
-button.active:hover {
+*:focus {
+    outline: 0 !important;
+}
+.data-button.active-button:hover {
   background-color: #ddd;
   color: #white;
+  border: none;
+  outline: none !important;
 }
 
 rect {
@@ -243,7 +260,7 @@ hr {
 
 
 .ml-medium-graph-container {
-  width:75%
+  width:60%
 }
 
 .medium-graph-container {
@@ -251,7 +268,7 @@ hr {
 }
 
 .small-graph-container {
-  width:25%
+  width:40%
 }
 
 .leaflet-popup-content {
@@ -658,6 +675,17 @@ div.tooltip {
 	border: 0px;
 	border-radius: 8px;
 	pointer-events: none;
+}
+
+
+#myInput {
+  width: 100%;
+  border-radius: 10px;
+  margin: 0% auto;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }
 
 /* Legend Font Style */
