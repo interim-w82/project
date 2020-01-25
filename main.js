@@ -279,8 +279,10 @@ d3.csv('user.csv').then((d) => {
 
   let schoolingArr = unique.map((i => i.replace(" ", "+")));
 
-
-  console.log(schoolingArr);
+  let tableObjArr = [];
+  let tableObj = d.forEach((number) => {
+    tableObjArr.push({ "Class Standing": number.class_standing, "Major": number.major, "Shirt Size": number.shirt_size, "School": number.school_name });
+  });
 
   let latArr = [];
   let lonArr = [];
@@ -292,18 +294,20 @@ d3.csv('user.csv').then((d) => {
     //  {name: "Laia Hamidullah", age: 27, sex: "F" },
     //  {name: "Abraham Mdulla", age: 33, sex: "M" }
     // ];
+  // let tableObj = d.map(f => f.)
+  // console.log(schoolArr);
 
-    var tr = d3.select(".objecttable tbody")
-	.selectAll("tr")
-	.data(d)
-	.enter().append("tr")
-	.attr("class", "row");
+  var tr = d3.select("table")
+      .selectAll("tr")
+      .data(tableObjArr)
+      .enter().append("tr")
+      .attr("class", "row");
 
-    var td = tr.selectAll("td")
-     .data(function(d, i) { return Object.values(d); })
-	.enter().append("td")
-	.attr("class", "cell")
-	.text(function(d) { return d; });
+  var td = tr.selectAll("td")
+      .data(function(d, i) { return Object.values(d); })
+      .enter().append("td")
+      .attr("class", "cell")
+      .text(function(d) { return d; });
 
   // for (i in schoolingArr) {
   //   console.log(i);
@@ -328,11 +332,11 @@ d3.csv('user.csv').then((d) => {
   //     console.log(myJson[0].lat);
   //   });
 
-  // d3.selectAll('#user-count').text("Total Registrants: " + d.length);
-  // d3.selectAll('#shirt-count').text("Shirts" );
-  // d3.selectAll('#shirt-info').text(`XS (${shirtLen[0]}) S (${shirtLen[1]}) M (${shirtLen[2]}) L (${shirtLen[3]}) XL (${shirtLen[4]}) XXL (${shirtLen[5]})`);
+  d3.selectAll('#user-count').text("Total Registrants: " + d.length);
+  d3.selectAll('#shirt-count').text("Shirts" );
+  d3.selectAll('#shirt-info').text(`XS (${shirtLen[0]}) S (${shirtLen[1]}) M (${shirtLen[2]}) L (${shirtLen[3]}) XL (${shirtLen[4]}) XXL (${shirtLen[5]})`);
+  d3.selectAll('#diet-count').text("Dietary Restrictions: " + (d => d.dietary_restrictions).length);
 
-  // d3.selectAll('#diet-count').text("Dietary Restrictions: " + (d => d.dietary_restrictions).length);
   update(d, "Race", undefined);
 
 }).catch(error => {
@@ -340,13 +344,13 @@ d3.csv('user.csv').then((d) => {
 });
 
 // set the dimensions and margins of the graph
-let margin = {top: 20, right: 20, bottom: 30, left: 20};
+let margin = {top: 20, right: 10, bottom: 0, left: 10};
 
 let chartwidth = parseInt (
   d3.selectAll('#chartsvg').style('width')
 ) - margin.left - margin.right;
 
-let chartheight = 250 - margin.top - margin.bottom;
+let chartheight = 300; //- margin.top - margin.bottom;
     // parseInt (
 //   d3.selectAll('#chartsvg').style('height')
 // );
@@ -360,7 +364,7 @@ var chart = d3.select("#chartsvg")
     .attr("height", chartheight)
     .append("g")
     .attr("transform",
-	  "translate(" + margin.left + "," + margin.top + ")");
+	  "translate(" + margin.left + "," + -20 + ")");
 
 // Initialize the X axis
 var x = d3.scaleBand()
@@ -659,3 +663,6 @@ function search() {
     //	.enter().append("td")
     //	.attr("class", "cell")
     //	.text(function(d) { return d; });
+function hey() {
+  alert("Not Logged In!");
+}

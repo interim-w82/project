@@ -70,7 +70,7 @@
       <hr/>
 
       <div class="nav-link">
-	<a href="">
+	<a onclick="hey()">
 	  <i class="fas fa-sign-out-alt nav-icon"></i>
 	  <span class="nav-text">Logout</span>
 	</a>
@@ -87,7 +87,7 @@
 	    <div class="graph-container ml-medium-graph-container">
 	      <i class="fas fa-user"></i> Hacker Demographics. Click on the buttons to see different demographics! (data from CalvinHacks Registration Database)
 	      <div class="button-container">
-		<div class="data-button active-button" onclick="update(globalD, 'Ethnicity', event)">Race</div>
+		<div class="data-button active-button" onclick="update(globalD, 'Race', event)">Ethnicity</div>
 		<div class="data-button" onclick="update(globalD, 'Gender', event)">Gender</div>
 		<div class="data-button" onclick="update(globalD, 'Skill', event)">Skill Level</div>
 		<div class="data-button" onclick="update(globalD, 'Major', event)">Major</div>
@@ -154,10 +154,7 @@
 	      <div class="wrap-table100">
 		<!-- <div class="table"> -->
 		  <table class="objecttable table">
-		    <thead>
-		      <tr class="header row"><th>Full Name</th><th>Graduation Date</th><th>School</th><th>Major</th></tr>
-		    </thead>
-		    <tbody></tbody>
+		    <tr class="header row"><th class="cell">Class Standing</th><th class="cell">Major</th><th class="cell">Shirt Size</th><th class="cell">School</th></tr>
 		  </table>
 
 		<!--   <div class="row header"> -->
