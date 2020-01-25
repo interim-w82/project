@@ -256,11 +256,11 @@ var data2 = [
 
 d3.csv('user.csv').then((d) => {
   const shirtArr = ["XS",
-		  "S",
-		  "M",
-		  "L",
-		  "XL",
-		  "XXL"];
+		    "S",
+		    "M",
+		    "L",
+		    "XL",
+		    "XXL"];
 
   const shirtLen = shirtArr.map(shirtVal =>
     d.map(b => b.shirt_size)
@@ -279,41 +279,64 @@ d3.csv('user.csv').then((d) => {
 
   let schoolingArr = unique.map((i => i.replace(" ", "+")));
 
-
-  console.log(schoolingArr);
+  let tableObjArr = [];
+  let tableObj = d.forEach((number) => {
+    tableObjArr.push({ "Class Standing": number.class_standing, "Major": number.major, "Shirt Size": number.shirt_size, "School": number.school_name });
+  });
 
   let latArr = [];
   let lonArr = [];
   let stateArr = [];
 
-  for (i in schoolingArr) {
-    console.log(i);
-    fetch("https://nominatim.openstreetmap.org/search.php?q=" + i + "&format=json")
-      .then(function(response) {
-	return response.json();
-      })
-      .then(function(myJson) {
-	// console.log(JSON.stringify(myJson));
-	latArr.push(myJson[0].lat);
-	lonArr.push(myJson[0].lon);
-	stateArr.push(myJson[0].display_name.split(", ")[4]);
-      });
-  }
 
-  fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      console.log(JSON.stringify(myJson));
-      console.log(myJson[0].lat);
-    });
+    // var matrix = [
+    //  {name: "Lee Gai Fun", age: 42, sex: "M"},
+    //  {name: "Laia Hamidullah", age: 27, sex: "F" },
+    //  {name: "Abraham Mdulla", age: 33, sex: "M" }
+    // ];
+  // let tableObj = d.map(f => f.)
+  // console.log(schoolArr);
+
+  var tr = d3.select("table")
+      .selectAll("tr")
+      .data(tableObjArr)
+      .enter().append("tr")
+      .attr("class", "row");
+
+  var td = tr.selectAll("td")
+      .data(function(d, i) { return Object.values(d); })
+      .enter().append("td")
+      .attr("class", "cell")
+      .text(function(d) { return d; });
+
+  // for (i in schoolingArr) {
+  //   console.log(i);
+  //   fetch("https://nominatim.openstreetmap.org/search.php?q=" + i + "&format=json")
+  //     .then(function(response) {
+  //	return response.json();
+  //     })
+  //     .then(function(myJson) {
+  //	// console.log(JSON.stringify(myJson));
+  //	latArr.push(myJson[0].lat);
+  //	lonArr.push(myJson[0].lon);
+  //	stateArr.push(myJson[0].display_name.split(", ")[4]);
+  //     });
+  // }
+
+  // fetch("https://nominatim.openstreetmap.org/search.php?q=calvin+university&format=json")
+  //   .then(function(response) {
+  //     return response.json();
+  //   })
+  //   .then(function(myJson) {
+  //     console.log(JSON.stringify(myJson));
+  //     console.log(myJson[0].lat);
+  //   });
 
   d3.selectAll('#user-count').text("Total Registrants: " + d.length);
   d3.selectAll('#shirt-count').text("Shirts" );
   d3.selectAll('#shirt-info').text(`XS (${shirtLen[0]}) S (${shirtLen[1]}) M (${shirtLen[2]}) L (${shirtLen[3]}) XL (${shirtLen[4]}) XXL (${shirtLen[5]})`);
-
   d3.selectAll('#diet-count').text("Dietary Restrictions: " + (d => d.dietary_restrictions).length);
+
   update(d, "Race", undefined);
 
 }).catch(error => {
@@ -321,13 +344,13 @@ d3.csv('user.csv').then((d) => {
 });
 
 // set the dimensions and margins of the graph
-let margin = {top: 20, right: 20, bottom: 30, left: 20};
+let margin = {top: 20, right: 10, bottom: 0, left: 10};
 
 let chartwidth = parseInt (
   d3.selectAll('#chartsvg').style('width')
 ) - margin.left - margin.right;
 
-let chartheight = 250 - margin.top - margin.bottom;
+let chartheight = 300; //- margin.top - margin.bottom;
     // parseInt (
 //   d3.selectAll('#chartsvg').style('height')
 // );
@@ -341,7 +364,7 @@ var chart = d3.select("#chartsvg")
     .attr("height", chartheight)
     .append("g")
     .attr("transform",
-	  "translate(" + margin.left + "," + margin.top + ")");
+	  "translate(" + margin.left + "," + -20 + ")");
 
 // Initialize the X axis
 var x = d3.scaleBand()
@@ -582,43 +605,64 @@ function search() {
 }
 
 // function tabulate(data, columns) {
-//   let table = d3.select(".wrap-table100").append("div")
-//       .attr("class", "table");
+  // let table = d3.select(".wrap-table100").append("div")
+  //     .attr("class", "table");
 
-//   let thead = table.append("div").attr("class", "row header");
+  // let thead = table.append("div").attr("class", "row header");
 
-//   // append the header row
-//   thead.selectAll(".cell")
-//     .data(columns)
-//     .enter()
-//     .append("div")
-//     .attr("class", "cell")
-//     .text(d => d.column);
+  // // append the header row
+  // thead.selectAll(".cell")
+  //   .data(columns)
+  //   .enter()
+  //   .append("div")
+  //   .attr("class", "cell")
+  //   .text(d => d.column);
 
-//   // create a row for each object in the data
-//   let rows = table.selectAll(".row")
-//       .data(data)
-//       .enter()
-//       .append("div")
-//       .attr("class", "row");
+  // // create a row for each object in the data
+  // let rows = table.selectAll(".row")
+  //     .data(data)
+  //     .enter()
+  //     .append("div")
+  //     .attr("class", "row");
 
-//   // create a cell in each row for each column
-//   let cells = rows.selectAll(".cell")
-//       .data(row =>
-//	columns.map(column =>
-//	  {column: column, "value": row[column]}))
-//       // function(row) {
-//       //	return columns.map(function(column) {
-//       //	  return {column: column, value: row[column]};
-//       //	});
-//       // })
-//       .enter()
-//       .append("div")
-//       .attr("class", "cell")
-//       .html(d => d.value);
+  // // create a cell in each row for each column
+  // let cells = rows.selectAll(".cell")
+  //     .data(// row =>
+  //	// columns.map(
+  //	  // column =>
+  //	  // {column: column, "value": row[column]}))
+  //     function(row) {
+  //	return columns.map(function(column) {
+  //	  return {column: column, value: row[column]};
+  //	});
+  //     })
+  //     .enter()
+  //     .append("div")
+  //     .attr("class", "cell")
+  //     .html(d => d.value);
 
-//   return table;
+  // return table;
 // }
 
 // render the table
 // var peopleTable = tabulate(data, ["Full Name", "Graduation Date", "School", "Major"]);
+    // var matrix = [
+    //  {name: "Lee Gai Fun", age: 42, sex: "M"},
+    //  {name: "Laia Hamidullah", age: 27, sex: "F" },
+    //  {name: "Abraham Mdulla", age: 33, sex: "M" }
+    // ];
+
+    // var tr = d3.select(".objecttable tbody")
+    //	.selectAll("tr")
+    //	.data(matrix)
+    //	.enter().append("tr")
+    //	.attr("class", "row");
+
+    // var td = tr.selectAll("td")
+    //  .data(function(d, i) { return Object.values(d); })
+    //	.enter().append("td")
+    //	.attr("class", "cell")
+    //	.text(function(d) { return d; });
+function hey() {
+  alert("Not Logged In!");
+}

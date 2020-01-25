@@ -70,7 +70,7 @@
       <hr/>
 
       <div class="nav-link">
-	<a href="">
+	<a onclick="hey()">
 	  <i class="fas fa-sign-out-alt nav-icon"></i>
 	  <span class="nav-text">Logout</span>
 	</a>
@@ -85,7 +85,7 @@
 	  <h2>Stats</h2>
 	  <div class="graph-container-list">
 	    <div class="graph-container ml-medium-graph-container">
-	      <i class="fas fa-user"></i> Hacker Demographics
+	      <i class="fas fa-user"></i> Hacker Demographics. Click on the buttons to see different demographics! (data from CalvinHacks Registration Database)
 	      <div class="button-container">
 		<div class="data-button active-button" onclick="update(globalD, 'Race', event)">Ethnicity</div>
 		<div class="data-button" onclick="update(globalD, 'Gender', event)">Gender</div>
@@ -138,7 +138,7 @@
 	  </div>
 
 	  <div class="graph-container large-graph-container">
-	     <i class="fas fa-map-marker-alt"></i>  Where are our Hackers?
+	     <i class="fas fa-map-marker-alt"></i>  Where are our Hackers coming from? Hover on the red dots to find out! (data from CalvinHacks registration database)
 	    <div id="mapid">
 	      <svg id="mapsvg"></svg>
 	    </div>
@@ -152,144 +152,147 @@
 
 	    <input type="text" id="myInput" onkeyup="search()" placeholder="Search..." title="Search">
 	      <div class="wrap-table100">
-		<div class="table">
+		<!-- <div class="table"> -->
+		  <table class="objecttable table">
+		    <tr class="header row"><th class="cell">Class Standing</th><th class="cell">Major</th><th class="cell">Shirt Size</th><th class="cell">School</th></tr>
+		  </table>
 
-		  <div class="row header">
-		    <div class="cell">
-		      Full Name
-		    </div>
-		    <div class="cell">
-		      Graduation Date
-		    </div>
-		    <div class="cell">
-		      School
-		    </div>
-		    <div class="cell">
-		      Major
-		    </div>
-		  </div>
+		<!--   <div class="row header"> -->
+		<!--     <div class="cell"> -->
+		<!--       Full Name -->
+		<!--     </div> -->
+		<!--     <div class="cell"> -->
+		<!--       Graduation Date -->
+		<!--     </div> -->
+		<!--     <div class="cell"> -->
+		<!--       School -->
+		<!--     </div> -->
+		<!--     <div class="cell"> -->
+		<!--       Major -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Ian Park
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2020
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      Calvin University
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Computer Science
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Ian Park -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2020 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       Calvin University -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Computer Science -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Shion Fukuzawa
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2020
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      Calvin University
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Math
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Shion Fukuzawa -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2020 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       Calvin University -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Math -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Andrew Thomas
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2020
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      Calvin University
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Computer Science
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Andrew Thomas -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2020 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       Calvin University -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Computer Science -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Sean Guzman
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2022
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      University of Michigan
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Math
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Sean Guzman -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2022 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       University of Michigan -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Math -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Keith Carter
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2020
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      Michigan State University
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Data Science
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Keith Carter -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2020 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       Michigan State University -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Data Science -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Austin Medina
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2023
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      University of Michigan
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Computer Science
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Austin Medina -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2023 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       University of Michigan -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Computer Science -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Vincent Williamson
-		    </div>
-		    <div class="cell" data-title="Age">
-		      2021
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      Michigan State University
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Computer Science
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Vincent Williamson -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--       2021 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       Michigan State University -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Computer Science -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		  <div class="row">
-		    <div class="cell" data-title="Full Name">
-		      Joseph Jinn
-		    </div>
-		    <div class="cell" data-title="Age">
-		       2020
-		    </div>
-		    <div class="cell" data-title="Job Title">
-		      Calvin University
-		    </div>
-		    <div class="cell" data-title="Location">
-		      Computer Science
-		    </div>
-		  </div>
+		<!--   <div class="row"> -->
+		<!--     <div class="cell" data-title="Full Name"> -->
+		<!--       Joseph Jinn -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Age"> -->
+		<!--        2020 -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Job Title"> -->
+		<!--       Calvin University -->
+		<!--     </div> -->
+		<!--     <div class="cell" data-title="Location"> -->
+		<!--       Computer Science -->
+		<!--     </div> -->
+		<!--   </div> -->
 
-		</div>
+		<!-- </div> -->
 	      </div>
 	    </div>
 	  </div>
