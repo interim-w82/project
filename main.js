@@ -63,7 +63,7 @@ var genderArray = ["Male",
 		   "Female",
 		   "I prefer not to say"];
 var majorArray = ["Computer", "Engineering", "Physics", "Other"];
-var skill_levelArray = ["0", "1", "2", "3", "4"];
+var skill_levelArray = ["4", "3", "2", "1", "0"];
 
 
 let width = parseInt (
