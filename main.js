@@ -141,7 +141,7 @@ d3.csv('data/user.csv').then((d) => {
 
   update(d, "race", undefined);
 
-  d3.csv("data/stateslived.csv")
+  d3.csv("data/states.csv")
     .then( function(data) {
 
       color.domain([0,1,2,3]); // setting the range of the input data
@@ -198,7 +198,7 @@ d3.csv('data/user.csv').then((d) => {
 	    });
 
 	  // Map the cities I have lived in!
-	  d3.csv("data/cities-lived.csv")
+	  d3.csv("data/cities.csv")
 	    .then( function(data) {
 	      cityData = data;
 
