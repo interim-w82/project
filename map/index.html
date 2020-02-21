@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Map</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-array.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+	  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+	  crossorigin=""/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+	    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+	    crossorigin=""></script>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+
+    <div class="mob-nav">
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+	<i class="fas fa-bars"></i>
+      </a>
+      <div id="mob-links">
+	<a href="/info">Info</a>
+	<a href="/info/map">Map</a>
+	<a href="/info/schedule">Schedule</a>
+      </div>
+    </div>
+
+
+    <div class="nav-container">
+      <div class="main-logo-container">
+	<a href="https://calvinhacks.com">
+	  <img class="main-logo" alt="" src="https://interim-w82.github.io/project/logo.svg"/>
+	</a>
+      </div>
+      <div class="nav-link">
+	<a href="/info">
+	  <i class="fas fa-info-circle nav-icon"></i>
+	  <span class="nav-text">General Information</span>
+	</a>
+      </div>
+
+      <div class="nav-link active">
+	<a href="/info/map">
+	  <i class="fas fa-map nav-icon"></i>
+	  <span class="nav-text">Map</span>
+	</a>
+      </div>
+
+      <div class="nav-link">
+	<a href="/info/schedule">
+	  <i class="fas fa-calendar-alt nav-icon"></i>
+	  <span class="nav-text">Schedule</span>
+	</a>
+      </div>
+    </div>
+
+    <div class="width-container">
+      <div class="main-container">
+	<div class="svg-container">
+
+<!-- <svg xmlns="http://www.w3.org/2000/svg" height="3487.36" width="2095.667"> -->
+	    <img style="padding-top: 35px" alt="" src="map1.svg"/>
+	    <img alt="" src="map2.svg"/>
+
+
+
+	<!-- <h1>Dashboard</h1> -->
+	<!-- <div class="dashboard-container"> -->
+
+	<!--   <h2>Stats</h2> -->
+	<!--   <div class="graph-container-list"> -->
+	<!--     <div class="graph-container ml-medium-graph-container"> -->
+	<!--       <i class="fas fa-user"></i> Hacker Demographics. Click on the buttons to see different demographics! (data from CalvinHacks Registration Database) -->
+	<!--       <div class="button-container"> -->
+	<!--	<div class="data-button active-button" onclick="update(globalD, 'race', event)">Ethnicity</div> -->
+	<!--	<div class="data-button" onclick="update(globalD, 'gender', event)">Gender</div> -->
+	<!--	<div class="data-button" onclick="update(globalD, 'skill_level', event)">Skill Level</div> -->
+	<!--	<div class="data-button" onclick="update(globalD, 'major', event)">Major</div> -->
+	<!--       </div> -->
+	<!--       <div id="general-graph"> -->
+	<!--	<div id="my_dataviz"> -->
+	<!--	  <svg id="chartsvg"></svg> -->
+	<!--	</div> -->
+	<!--       </div> -->
+	<!--     </div> -->
+	<!--     <div class="user-info-container small-graph-container "> -->
+	<!--       <div class="user-info graph-container"> -->
+	<!--	<p id="user-count" class="user-card"> </p> -->
+	<!--	<i class="fas fa-ellipsis-v"></i> -->
+	<!--       </div> -->
+	<!--       <div class="user-info graph-container"> -->
+	<!--	<p id="shirt-count" class="user-card"></p> -->
+	<!--	<p id="shirt-info">XS (0) S (0) M (0) L (0) XL (0) XXL(0)</p> -->
+	<!--	<i class="fas fa-ellipsis-v"></i> -->
+	<!--       </div> -->
+	<!--       <div class="user-info graph-container"> -->
+	<!--	<p id="diet-count" class="user-card"> </p> -->
+	<!--	<p id="diet-info"></p> -->
+	<!--	<i class="fas fa-ellipsis-v"></i> -->
+	<!--       </div> -->
+	<!--     </div> -->
+	<!--   </div> -->
+
+	<!--   <div class="graph-container large-graph-container"> -->
+	<!--     <i class="fas fa-map-marker-alt"></i>  Where are our Hackers coming from? Hover on the red dots to find out! (data from CalvinHacks registration database) -->
+	<!--     <div id="mapid"> -->
+	<!--       <svg id="mapsvg"></svg> -->
+	<!--     </div> -->
+	<!--   </div> -->
+
+	<!--   <h2>Users</h2> -->
+	<!--   <div class="limiter"> -->
+	<!--     <div class="container-table100"> -->
+	<!--       <input type="text" id="myInput" onkeyup="search()" placeholder="Search..." title="Search"> -->
+	<!--       <div class="wrap-table100"> -->
+	<!--	<table class="objecttable table"> -->
+	<!--	  <tr class="header row"><th class="cell">Class Standing</th><th class="cell">Major</th><th class="cell">Shirt Size</th><th class="cell">School</th></tr> -->
+	<!--	</table> -->
+	<!--       </div> -->
+	<!--     </div> -->
+	<!--   </div> -->
+	<!-- </div> -->
+
+	<!-- <footer id="footer"> -->
+	<!--   <div class="footer-container" class="flex flex-col justify-center items-center content--related text-black"> -->
+	<!--     <div id="copyright" class="flex flex-col w-full items-center mb-8"> -->
+	<!--       <p>Made with <i class="fas fa-coffee"></i> by <a href="https://github.com/duckonomy" style="color: #456990">Ian Park</a></p> -->
+	<!--     </div> -->
+	<!--   </div> -->
+	<!-- </footer> -->
+
+
+	</div>
+      </div>
+    </div>
+
+
+    <script src="main.js"></script>
+  </body>
+</html>
