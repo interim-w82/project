@@ -37,13 +37,13 @@
      inkscape:window-height="1402"
      id="namedview1623"
      showgrid="false"
-     inkscape:zoom="0.8397922"
-     inkscape:cx="837.97019"
-     inkscape:cy="5855.5743"
+     inkscape:zoom="0.4198961"
+     inkscape:cx="748.66536"
+     inkscape:cy="3224.2679"
      inkscape:window-x="0"
      inkscape:window-y="38"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg1621" />
+     inkscape:current-layer="g7910-0" />
   <defs
      id="defs911">
     <linearGradient
@@ -4155,74 +4155,53 @@
   <g
      id="g7080-4-8-6-2"
      transform="matrix(1.7395507,0,0,1.7395507,1373.5747,-4654.4964)">
-    <text
-       id="text5899-5-4-6-5-8-6-8-6"
-       y="3643.8044"
-       x="-506.79327"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         y="3643.8044"
-         x="-506.79327"
-         id="tspan5897-3-5-1-9-1-2-7-5"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#000000">BREAKFAST:</tspan></text>
-    <text
-       id="text5899-3-5-0-0-7-2-8-9-8"
-       y="3643.2668"
-       x="-259.02744"
-       style="font-style:normal;font-weight:normal;font-size:40.89192963px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.02229822"
-       xml:space="preserve"><tspan
-         y="3643.2668"
-         x="-259.02744"
-         id="tspan5897-6-6-3-6-7-8-4-0-7"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Didact Gothic';-inkscape-font-specification:'Didact Gothic';fill:#000000;stroke-width:1.02229822">7:00 AM</tspan></text>
-    <text
-       id="text5899-5-9-1-5-7-36-7-3-9"
-       y="3700.676"
-       x="-569.01154"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         y="3700.676"
-         x="-569.01154"
-         id="tspan5897-3-3-0-9-3-8-2-3-6"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#000000">LOCATION:</tspan></text>
-    <text
-       id="text5899-3-5-6-6-4-6-02-4-3-0"
-       y="3700.1382"
-       x="-350.35123"
-       style="font-style:normal;font-weight:normal;font-size:40.89192963px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.02229822"
-       xml:space="preserve"><tspan
-         y="3700.1382"
-         x="-350.35123"
-         id="tspan5897-6-6-0-3-9-5-1-0-7-4"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Didact Gothic';-inkscape-font-specification:'Didact Gothic';fill:#000000;stroke-width:1.02229822">MAIN LOBBY</tspan></text>
-    <text
-       id="text5899-5-9-5-0-9-3-0-6-3-1"
-       y="3757.5488"
-       x="-318.69916"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       xml:space="preserve"><tspan
-         y="3757.5488"
-         x="-318.69916"
-         id="tspan5897-3-3-9-6-1-9-5-2-2-0"
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#000000">FOOD:</tspan></text>
     <g
-       id="g3757">
+       id="g1758"
+       transform="translate(0,32.857333)">
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="-506.79327"
+         y="3643.8044"
+         id="text5899-5-4-6-5-8-6-8-6"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#000000"
+           sodipodi:role="line"
+           id="tspan5897-3-5-1-9-1-2-7-5"
+           x="-506.79327"
+           y="3643.8044">BREAKFAST:</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:40.89192963px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.02229822"
-         x="-194.149"
-         y="3757.0112"
-         id="text5899-3-5-6-2-1-7-4-1-9-6-4"><tspan
+         x="-259.02744"
+         y="3643.2668"
+         id="text5899-3-5-0-0-7-2-8-9-8"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Didact Gothic';-inkscape-font-specification:'Didact Gothic';fill:#000000;stroke-width:1.02229822"
            sodipodi:role="line"
-           id="tspan5897-6-6-0-2-5-7-8-1-9-5-8"
-           x="-194.149"
-           y="3757.0112">TBD</tspan></text>
+           id="tspan5897-6-6-3-6-7-8-4-0-7"
+           x="-259.02744"
+           y="3643.2668">7:00 AM</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         x="-569.01154"
+         y="3700.676"
+         id="text5899-5-9-1-5-7-36-7-3-9"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#000000"
+           sodipodi:role="line"
+           id="tspan5897-3-3-0-9-3-8-2-3-6"
+           x="-569.01154"
+           y="3700.676">LOCATION:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40.89192963px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.02229822"
+         x="-350.35123"
+         y="3700.1382"
+         id="text5899-3-5-6-6-4-6-02-4-3-0"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Didact Gothic';-inkscape-font-specification:'Didact Gothic';fill:#000000;stroke-width:1.02229822"
+           sodipodi:role="line"
+           id="tspan5897-6-6-0-3-9-5-1-0-7-4"
+           x="-350.35123"
+           y="3700.1382">MAIN LOBBY</tspan></text>
     </g>
   </g>
   <g
@@ -4273,7 +4252,7 @@
            sodipodi:role="line"
            id="tspan5897-6-6-0-25-9-2-5-4-9"
            x="2603.3696"
-           y="2110.4758">BYTWERK</tspan></text>
+           y="2110.4758">170</tspan></text>
     </g>
   </g>
   <g
